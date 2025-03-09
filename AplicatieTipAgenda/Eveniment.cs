@@ -8,8 +8,9 @@ namespace AplicatieTipAgenda
 {
     class Eveniment
     {
-        string Titlu, Descriere;
-        DateTime Data;
+        public string Titlu { get; set; }
+        public DateTime Data { get; set; }
+        public string Descriere { get; set; }
 
         // Constructor
         public Eveniment(string _Titlu, DateTime? _Data = null, string _Descriere = "")
@@ -21,32 +22,8 @@ namespace AplicatieTipAgenda
 
         public override string ToString()
         {
-            return $"Eveniment: {Titlu}\nData: {Data.ToString("dd/MM/yyyy HH:mm")}\nDescriere: {Descriere}";
+            return $"Eveniment: {Titlu} Data: {Data.ToString("dd/MM/yyyy HH:mm")} Descriere: {Descriere}\n";
         }
 
-        public string GetTitlu()
-        {
-            return Titlu;
-        }
-        public DateTime GetData()
-        {
-            return Data;
-        }
-        public string GetDescriere()
-        {
-            return Descriere;
-        }
-        public void SetTitlu(string TitluNou)
-        {
-            Titlu = TitluNou;
-        }
-        public void SetData(DateTime DataNoua)
-        {
-            Data = DataNoua;
-        }
-        public void SetDescriere(string DescriereNoua)
-        {
-            Descriere = DescriereNoua;
-        }
     }
 }
