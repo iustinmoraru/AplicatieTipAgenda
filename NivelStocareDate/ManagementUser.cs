@@ -1,47 +1,48 @@
-﻿using LibrarieModele;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LibrarieModele;
 
 namespace NivelStocareDate
 {
-    public class ManagementAgenda_FisierText
+    public class ManagementUser
     {
         private const int nr_max = 50;
         private string numeFisier;
-        public ManagementAgenda_FisierText(string numeFisier)
+
+        public ManagementUser(string numeFisier)
         {
             this.numeFisier = numeFisier;
             Stream streamFisierText = File.Open(numeFisier, FileMode.OpenOrCreate);
             streamFisierText.Close();
         }
-        public void AdaugaEveniment(Eveniment eveniment)
+
+        public void AdaugaUser(User user)
         {
             using (StreamWriter streamWriterFisierText = new StreamWriter(numeFisier, true))
             {
-                streamWriterFisierText.WriteLine(eveniment.ConversieLaSir_PentruFisier());
+                streamWriterFisierText.WriteLine(user.ConversieLaSir_PentruFisier());
             }
         }
 
-        public Eveniment[] GetEvenimente(out int nrEvenimente)
+        public User[] GetUsers(out int nrUsers)
         {
-            Eveniment[] evenimente = new Eveniment[nr_max];
+            User[] users = new User[nr_max];
 
             using (StreamReader streamReader = new StreamReader(numeFisier))
             {
                 string linieFisier;
-                nrEvenimente = 0;
-
-                while ((linieFisier = streamReader.ReadLine()) != null)
+                nrUsers = 0;
+                while((linieFisier = streamReader.ReadLine()) != null)
                 {
-                    evenimente[nrEvenimente++] = new Eveniment(linieFisier);
+                    users[nrUsers++] = new User(linieFisier);
                 }
             }
 
-            return evenimente;
+            return users;
         }
     }
 }
