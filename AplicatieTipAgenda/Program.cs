@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,10 @@ namespace AplicatieTipAgenda
         static Eveniment ev;
         static void Main()
         {
-            ManagementAgenda agenda = new ManagementAgenda(10);
+            ManagementAgenda_Memorie agenda = new ManagementAgenda_Memorie(10);
+            ManagementAgenda_FisierText agendaFisier = new ManagementAgenda_FisierText("evenimente.txt");
+
+            int nrEvenimente = 0;
 
             string optiune;
             do
@@ -22,6 +26,8 @@ namespace AplicatieTipAgenda
                 Console.WriteLine("S. Salvarea datelor intr-un vector de obiecte");
                 Console.WriteLine("A. Afisarea datelor dintr-un vector de obiecte");
                 Console.WriteLine("B. Cautarea dupa anumite criterii");
+                Console.WriteLine("D. Salvare eveniment in fisier");
+                Console.WriteLine("E. Afisare evenimente din fisier");
                 Console.WriteLine("X. Inchidere program");
 
                 Console.WriteLine("Alege o optiune");
@@ -34,8 +40,7 @@ namespace AplicatieTipAgenda
                         break;
 
                     case "S":
-                        string mesaj = agenda.AdaugaEveniment(ev);
-                        Console.WriteLine(mesaj);
+                        agenda.AdaugaEveniment(ev);
                         break;
 
                     case "A":
@@ -46,6 +51,19 @@ namespace AplicatieTipAgenda
                         Console.Write("Introdu titlul evenimentului pentru căutare: ");
                         string titluCautat = Console.ReadLine();
                         agenda.CautaEveniment(titluCautat);
+                        break;
+
+                    case "D":
+                        agendaFisier.AdaugaEveniment(ev);
+                        nrEvenimente++;
+                        break;
+
+                    case "E":
+                        Eveniment[] evenimente = agendaFisier.GetEvenimente(out nrEvenimente);
+                        for (int i = 0; i < nrEvenimente; i++)
+                        {
+                            Console.WriteLine(evenimente[i].ConversieLaSir_PentruFisier());
+                        }
                         break;
 
                     case "X":

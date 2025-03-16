@@ -41,7 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ManagementAgenda.cs" />
+    <Compile Include="ManagementAgenda_Memorie.cs" />
+    <Compile Include="ManagementAgenda_FisierText.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

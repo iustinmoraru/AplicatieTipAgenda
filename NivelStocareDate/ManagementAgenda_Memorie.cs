@@ -7,29 +7,23 @@ using LibrarieModele;
 
 namespace NivelStocareDate
 {
-    // Clasa Agenda va stoca o lista de evenimente si va oferi metode pentru: adaugarea, stergerea, visualizarea si cautarea evenimentelor
-    public class ManagementAgenda
+    public class ManagementAgenda_Memorie
     {
         private Eveniment[] Evenimente;
         private int numarEvenimente;
 
-        public ManagementAgenda(int capacitateMaxima)
+        public ManagementAgenda_Memorie(int capacitateMaxima)
         {
             Evenimente = new Eveniment[capacitateMaxima]; 
             numarEvenimente = 0;
         }
 
-        public string AdaugaEveniment(Eveniment eveniment)
+        public void AdaugaEveniment(Eveniment eveniment)
         {
             if (numarEvenimente < Evenimente.Length)
             {
                 Evenimente[numarEvenimente] = eveniment;
                 numarEvenimente++;
-                return "Eveniment adăugat cu succes!";
-            }
-            else
-            {
-                return "Nu mai există spațiu pentru evenimente!";
             }
         }
 
@@ -82,7 +76,6 @@ namespace NivelStocareDate
                     }
                     Evenimente[numarEvenimente - 1] = null;
                     numarEvenimente--;
-                    return "Eveniment șters cu succes!";
                 }
             }
             return "Evenimentul nu a fost găsit.";
