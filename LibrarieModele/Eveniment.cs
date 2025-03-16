@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AplicatieTipAgenda
+namespace LibrarieModele
 {
-    class Eveniment
+    public class Eveniment
     {
         public string Titlu { get; set; }
         public DateTime Data { get; set; }

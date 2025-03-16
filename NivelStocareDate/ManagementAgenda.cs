@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LibrarieModele;
 
-namespace AplicatieTipAgenda
+namespace NivelStocareDate
 {
     // Clasa Agenda va stoca o lista de evenimente si va oferi metode pentru: adaugarea, stergerea, visualizarea si cautarea evenimentelor
-    class ManagementAgenda
+    public class ManagementAgenda
     {
         private Eveniment[] Evenimente;
         private int numarEvenimente;
