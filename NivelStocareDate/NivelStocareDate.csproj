@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="ManagementAgenda_Memorie.cs" />
     <Compile Include="ManagementAgenda_FisierText.cs" />
-    <Compile Include="ManagementUser.cs" />
+    <Compile Include="ManagementUser_FisierText.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

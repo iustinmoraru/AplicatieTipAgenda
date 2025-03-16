@@ -8,12 +8,12 @@ using LibrarieModele;
 
 namespace NivelStocareDate
 {
-    public class ManagementUser
+    public class ManagementUser_FisierText
     {
         private const int nr_max = 50;
         private string numeFisier;
 
-        public ManagementUser(string numeFisier)
+        public ManagementUser_FisierText(string numeFisier)
         {
             this.numeFisier = numeFisier;
             Stream streamFisierText = File.Open(numeFisier, FileMode.OpenOrCreate);

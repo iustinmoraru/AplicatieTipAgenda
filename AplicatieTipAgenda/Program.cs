@@ -18,7 +18,7 @@ namespace AplicatieTipAgenda
         {
             ManagementAgenda_Memorie agenda = new ManagementAgenda_Memorie(10);
             ManagementAgenda_FisierText agendaFisier = new ManagementAgenda_FisierText("evenimente.txt");
-            ManagementUser managementUser = new ManagementUser("useri.txt");
+            ManagementUser_FisierText managementUser = new ManagementUser_FisierText("useri.txt");
 
             int nrEvenimente = 0;
             int nrUseri = 0;
@@ -124,9 +124,9 @@ namespace AplicatieTipAgenda
 
         public static User CitireUseriTastatura()
         {
-            Console.Write("Introduceti numele userului: ");
+            Console.Write("Introduceti numele: ");
             string nume = Console.ReadLine();
-            Console.Write("Introduceti prenumele userului: ");
+            Console.Write("Introduceti prenumele: ");
             string prenume = Console.ReadLine();
             User user = new User(nume, prenume);
             
