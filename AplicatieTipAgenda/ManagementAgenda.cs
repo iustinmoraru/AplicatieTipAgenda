@@ -18,55 +18,73 @@ namespace AplicatieTipAgenda
             numarEvenimente = 0;
         }
 
-        public void AdaugaEveniment(Eveniment eveniment)
+        public string AdaugaEveniment(Eveniment eveniment)
         {
             if (numarEvenimente < Evenimente.Length)
             {
-                Evenimente[numarEvenimente] = eveniment; 
+                Evenimente[numarEvenimente] = eveniment;
                 numarEvenimente++;
-                Console.WriteLine("Eveniment adăugat cu succes!\n");
+                return "Eveniment adăugat cu succes!";
             }
             else
             {
-                Console.WriteLine("Nu mai există spațiu pentru evenimente!\n");
+                return "Nu mai există spațiu pentru evenimente!";
             }
         }
 
-        public void AfiseazaEvenimente()
+        public string AfiseazaEvenimente()
         {
             if (numarEvenimente == 0)
             {
-                Console.WriteLine("Nu există evenimente salvate.\n");
-                return;
+                return "Nu există evenimente salvate.";
             }
 
-            Console.WriteLine("\nLista evenimentelor:");
+            string rezultat = "Lista evenimentelor:\n";
             for (int i = 0; i < numarEvenimente; i++)
             {
-                Console.WriteLine(Evenimente[i].ToString());  
+                rezultat += Evenimente[i].ToString() + "\n";
             }
-            Console.WriteLine();
+            return rezultat;
         }
 
-
-        public void CautaEveniment(string titlu)
+        public string CautaEveniment(string titlu)
         {
             bool gasit = false;
-            Console.WriteLine("\nEvenimente găsite:");
+            string rezultat = "Evenimente găsite:\n";
+
             for (int i = 0; i < numarEvenimente; i++)
             {
                 if (Evenimente[i].Titlu.IndexOf(titlu, StringComparison.OrdinalIgnoreCase) >= 0)
                 {
-                    Console.WriteLine(Evenimente[i].ToString()); 
+                    rezultat += Evenimente[i].ToString() + "\n";
                     gasit = true;
                 }
             }
 
             if (!gasit)
             {
-                Console.WriteLine("Niciun eveniment găsit cu acest titlu.\n");
+                return "Niciun eveniment găsit cu acest titlu.";
             }
-            Console.WriteLine();
+
+            return rezultat;
+        }
+
+        public string StergeEveniment(string titlu)
+        {
+            for (int i = 0; i < numarEvenimente; i++)
+            {
+                if (Evenimente[i].Titlu.Equals(titlu, StringComparison.OrdinalIgnoreCase))
+                {
+                    for (int j = i; j < numarEvenimente - 1; j++)
+                    {
+                        Evenimente[j] = Evenimente[j + 1];
+                    }
+                    Evenimente[numarEvenimente - 1] = null;
+                    numarEvenimente--;
+                    return "Eveniment șters cu succes!";
+                }
+            }
+            return "Evenimentul nu a fost găsit.";
         }
 
     }

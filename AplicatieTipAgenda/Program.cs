@@ -32,11 +32,12 @@ namespace AplicatieTipAgenda
                         break;
 
                     case "S":
-                        agenda.AdaugaEveniment(ev);
+                        string mesaj = agenda.AdaugaEveniment(ev);
+                        Console.WriteLine(mesaj);
                         break;
 
                     case "A":
-                        agenda.AfiseazaEvenimente();
+                        Console.WriteLine(agenda.AfiseazaEvenimente());
                         break;
 
                     case "B":
