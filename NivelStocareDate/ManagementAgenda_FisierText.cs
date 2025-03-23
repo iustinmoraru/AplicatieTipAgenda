@@ -20,11 +20,12 @@ namespace NivelStocareDate
         }
         public void AdaugaEveniment(Eveniment eveniment, ref int nrEvenimente)
         {
-            eveniment.Id = ++nrEvenimente;
+            eveniment.Id = nrEvenimente;
             using (StreamWriter streamWriterFisierText = new StreamWriter(numeFisier, true))
             {
                 streamWriterFisierText.WriteLine(eveniment.ConversieLaSir_PentruFisier());
             }
+            nrEvenimente++;
         }
 
         public Eveniment[] GetEvenimente(out int nrEvenimente)

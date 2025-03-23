@@ -16,12 +16,15 @@ namespace AplicatieTipAgenda
         static User us;
         static void Main()
         {
-            ManagementAgenda_Memorie agenda = new ManagementAgenda_Memorie(10);
+            ManagementAgenda_Memorie agenda = new ManagementAgenda_Memorie(100);
             ManagementAgenda_FisierText agendaFisier = new ManagementAgenda_FisierText("evenimente.txt");
             ManagementUser_FisierText managementUser = new ManagementUser_FisierText("useri.txt");
 
-            int nrEvenimente = 0;
-            int nrUseri = 0;
+            int nrEvenimente;
+            int nrUseri;
+
+            agendaFisier.GetEvenimente(out nrEvenimente);
+            managementUser.GetUsers(out nrUseri);
 
             string optiune;
             do
@@ -68,7 +71,6 @@ namespace AplicatieTipAgenda
 
                     case "D":
                         agendaFisier.AdaugaEveniment(ev, ref nrEvenimente);
-                        nrEvenimente++;
                         break;
 
                     case "E":
@@ -81,7 +83,6 @@ namespace AplicatieTipAgenda
 
                     case "J":
                         managementUser.AdaugaUser(us, ref nrUseri);
-                        nrUseri++;
                         break;
 
                     case "I":
@@ -107,7 +108,6 @@ namespace AplicatieTipAgenda
                         break;
 
                     case "X":
-                        Console.WriteLine();
                         break;
 
                     default:
@@ -133,7 +133,49 @@ namespace AplicatieTipAgenda
             Console.Write("Introduceti descrierea evenimentului: ");
             string descriere = Console.ReadLine();
 
+            
             Eveniment eveniment = new Eveniment(0, titlu, data, descriere);
+
+            Console.WriteLine("Introduceti prioritatea evenimentului:");
+
+            foreach (EnumPentruPrioritateEveniment prioritate in Enum.GetValues(typeof(EnumPentruPrioritateEveniment)))
+            {
+                Console.WriteLine($"{(int)prioritate} - {prioritate}");
+            }
+
+            string inputPrioritate = Console.ReadLine();
+
+            if (Enum.TryParse(inputPrioritate, out EnumPentruPrioritateEveniment prioritateEveniment) && Enum.IsDefined(typeof(EnumPentruPrioritateEveniment), prioritateEveniment))
+            {
+                eveniment.PrioritateEveniment = prioritateEveniment;
+            }
+
+            Console.WriteLine("Introduceti zilele saptamanii (separate prin virgula) pentru evenimentul: ");
+            foreach (EnumPentruZiuaSaptamanii zi in Enum.GetValues(typeof(EnumPentruZiuaSaptamanii)))
+            {
+                if (zi != EnumPentruZiuaSaptamanii.Toate)  
+                {
+                    Console.WriteLine($"{(int)zi} - {zi}");
+                }
+            }
+
+            string inputZile = Console.ReadLine();
+            EnumPentruZiuaSaptamanii zileSelectate = 0;
+            string[] zileInput = inputZile.Split(',');
+
+            foreach (var zi in zileInput)
+            {
+                if (Enum.TryParse(zi.Trim(), out EnumPentruZiuaSaptamanii ziSelectata) && Enum.IsDefined(typeof(EnumPentruZiuaSaptamanii), ziSelectata))
+                {
+                    zileSelectate |= ziSelectata; 
+                }
+                else
+                {
+                    Console.WriteLine($"Ziua {zi.Trim()} nu este validă.");
+                }
+            }
+
+            eveniment.ZileSelectate = zileSelectate;
 
             return eveniment;
         }
@@ -144,8 +186,22 @@ namespace AplicatieTipAgenda
             string nume = Console.ReadLine();
             Console.Write("Introduceti prenumele: ");
             string prenume = Console.ReadLine();
-            User user = new User(0, nume, prenume);
             
+            User user = new User(0, nume, prenume);
+
+            Console.WriteLine("Introduceti genul userului:");
+            
+            foreach (GenUser gen in Enum.GetValues(typeof(GenUser)))
+            {
+                Console.WriteLine($"{(int)gen} - {gen}");
+            }
+
+            string inputGen = Console.ReadLine();
+
+            if (Enum.TryParse(inputGen, out GenUser genUser) && Enum.IsDefined(typeof(GenUser), genUser))
+            {
+                user.Gen = genUser;
+            }
             return user;
         }
     }

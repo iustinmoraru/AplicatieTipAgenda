@@ -41,7 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EnumPentruZiuaSaptamanii.cs" />
     <Compile Include="Eveniment.cs" />
+    <Compile Include="GenUser.cs" />
+    <Compile Include="EnumPentruPrioritateEveniment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>

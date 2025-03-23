@@ -22,7 +22,7 @@ namespace NivelStocareDate
 
         public void AdaugaUser(User user, ref int nrUseri)
         {
-            user.Id_User = ++nrUseri;
+            user.Id_User = nrUseri++;
             using (StreamWriter streamWriterFisierText = new StreamWriter(numeFisier, true))
             {
                 streamWriterFisierText.WriteLine(user.ConversieLaSir_PentruFisier());
