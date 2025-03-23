@@ -18,8 +18,9 @@ namespace NivelStocareDate
             Stream streamFisierText = File.Open(numeFisier, FileMode.OpenOrCreate);
             streamFisierText.Close();
         }
-        public void AdaugaEveniment(Eveniment eveniment)
+        public void AdaugaEveniment(Eveniment eveniment, ref int nrEvenimente)
         {
+            eveniment.Id = ++nrEvenimente;
             using (StreamWriter streamWriterFisierText = new StreamWriter(numeFisier, true))
             {
                 streamWriterFisierText.WriteLine(eveniment.ConversieLaSir_PentruFisier());
@@ -43,5 +44,42 @@ namespace NivelStocareDate
 
             return evenimente;
         }
+
+        public void StergeEvenimente(string titlu)
+        {
+            string[] liniiFisier = File.ReadAllLines(numeFisier);
+
+            using (StreamWriter streamWriter = new StreamWriter(numeFisier))
+            {
+                foreach (string linie in liniiFisier)
+                {
+                    if (!linie.Contains(titlu))
+                    {
+                        streamWriter.WriteLine(linie);
+                    }
+                }
+            }
+        }
+
+        public Eveniment CautaEvenimentinFisier(string titlu)
+        {
+            Eveniment ev;
+            using (StreamReader streamReader = new StreamReader(numeFisier))
+            {
+                string line;
+                while ((line = streamReader.ReadLine()) != null)
+                {
+                    ev = new Eveniment(line);
+                    if(ev.Titlu == titlu)
+                    {
+                        return ev;
+                    }
+                }
+            }
+            return null;
+
+        }
+
     }
+
 }

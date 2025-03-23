@@ -9,30 +9,35 @@ namespace LibrarieModele
     public class Eveniment
     {
         private const char SEPARATOR_PRINCIPAL_FISIER = ';';
-        private const int TITLU = 0;
-        private const int DATA = 1;
-        private const int DESCRIERE = 2;
+        private const int ID = 0;
+        private const int TITLU = 1;
+        private const int DATA = 2;
+        private const int DESCRIERE = 3;
 
+        public int Id { get; set; }
         public string Titlu { get; set; }
         public DateTime Data { get; set; }
         public string Descriere { get; set; }
 
-        // Constructor
-        public Eveniment(string _Titlu, DateTime? _Data = null, string _Descriere = "")
+        // Constructor 
+        public Eveniment(int _Id, string _Titlu, DateTime? _Data = null, string _Descriere = "")
         {
+            Id = _Id;
             Titlu = _Titlu;
-            Data = _Data ?? DateTime.Now;  // Dacă _Data este null, setează la data curentă (DateTime.Now)
+            Data = _Data ?? DateTime.Now;
             Descriere = _Descriere;
         }
 
         public override string ToString()
         {
-            return $"Eveniment: {Titlu} Data: {Data.ToString("dd/MM/yyyy HH:mm")} Descriere: {Descriere}\n";
+            return $"ID: {Id} Eveniment: {Titlu} Data: {Data:dd/MM/yyyy HH:mm} Descriere: {Descriere}\n";
         }
 
         public Eveniment(string linieFisier)
         {
             string[] date = linieFisier.Split(SEPARATOR_PRINCIPAL_FISIER);
+
+            Id = int.Parse(date[ID]);
             Titlu = date[TITLU];
             Data = DateTime.Parse(date[DATA]);
             Descriere = date[DESCRIERE];
@@ -40,13 +45,14 @@ namespace LibrarieModele
 
         public string ConversieLaSir_PentruFisier()
         {
-            string obiectStudentPentruFisier = string.Format("{1}{0}{2}{0}{3}{0}",
+            return string.Format("{1}{0}{2}{0}{3}{0}{4}",
                 SEPARATOR_PRINCIPAL_FISIER,
+                Id,
                 Titlu ?? "NECUNOSCUT",
                 Data.ToString("dd/MM/yyyy HH:mm") ?? "NECUNOSCUT",
                 Descriere ?? "NECUNOSCUT");
-
-            return obiectStudentPentruFisier;
         }
+
     }
 }
+

@@ -35,6 +35,8 @@ namespace AplicatieTipAgenda
                 Console.WriteLine("E. Afisare evenimente din fisier");
                 Console.WriteLine("J. Salvare useri in fisier");
                 Console.WriteLine("I. Afisare useri in fisier");
+                Console.WriteLine("Z. Stergere eveniment din fisier");
+                Console.WriteLine("Y. Stergere user din fisier");
                 Console.WriteLine("X. Inchidere program");
 
                 Console.WriteLine("Alege o optiune");
@@ -65,7 +67,7 @@ namespace AplicatieTipAgenda
                         break;
 
                     case "D":
-                        agendaFisier.AdaugaEveniment(ev);
+                        agendaFisier.AdaugaEveniment(ev, ref nrEvenimente);
                         nrEvenimente++;
                         break;
 
@@ -78,7 +80,7 @@ namespace AplicatieTipAgenda
                         break;
 
                     case "J":
-                        managementUser.AdaugaUser(us);
+                        managementUser.AdaugaUser(us, ref nrUseri);
                         nrUseri++;
                         break;
 
@@ -90,9 +92,23 @@ namespace AplicatieTipAgenda
                         }
                         break;
 
+                    case "Z":
+                        Console.Write("Introdu titlul evenimentului pentru stergere: ");
+                        string titluSters = Console.ReadLine();
+                        agendaFisier.StergeEvenimente(titluSters);
+                        break;
+
+                    case "Y":
+                        Console.WriteLine("Introdu numele pentru stergere:");
+                        string numeSters = Console.ReadLine();
+                        Console.WriteLine("Introdu prenumele pentru stergere:");
+                        string prenumeSters = Console.ReadLine();
+                        managementUser.StergeUser(numeSters, prenumeSters);
+                        break;
+
                     case "X":
                         Console.WriteLine();
-                        return;
+                        break;
 
                     default:
                         Console.WriteLine("Optiunea inexistenta");
@@ -117,7 +133,7 @@ namespace AplicatieTipAgenda
             Console.Write("Introduceti descrierea evenimentului: ");
             string descriere = Console.ReadLine();
 
-            Eveniment eveniment = new Eveniment(titlu, data, descriere);
+            Eveniment eveniment = new Eveniment(0, titlu, data, descriere);
 
             return eveniment;
         }
@@ -128,7 +144,7 @@ namespace AplicatieTipAgenda
             string nume = Console.ReadLine();
             Console.Write("Introduceti prenumele: ");
             string prenume = Console.ReadLine();
-            User user = new User(nume, prenume);
+            User user = new User(0, nume, prenume);
             
             return user;
         }

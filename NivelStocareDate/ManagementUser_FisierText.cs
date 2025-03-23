@@ -20,8 +20,9 @@ namespace NivelStocareDate
             streamFisierText.Close();
         }
 
-        public void AdaugaUser(User user)
+        public void AdaugaUser(User user, ref int nrUseri)
         {
+            user.Id_User = ++nrUseri;
             using (StreamWriter streamWriterFisierText = new StreamWriter(numeFisier, true))
             {
                 streamWriterFisierText.WriteLine(user.ConversieLaSir_PentruFisier());
@@ -41,8 +42,40 @@ namespace NivelStocareDate
                     users[nrUsers++] = new User(linieFisier);
                 }
             }
-
             return users;
+        }
+
+        public void StergeUser(string nume, string prenume)
+        {
+            string[] liniiFisier = File.ReadAllLines(numeFisier);
+            using (StreamWriter streamWriter = new StreamWriter(numeFisier))
+            {
+                foreach (string linie in liniiFisier)
+                {
+                    if (!linie.Contains(nume) && !linie.Contains(prenume))
+                    {
+                        streamWriter.WriteLine(linie);
+                    }
+                }
+            }
+        }
+
+        public User CautaUserinFisier(string _nume, string _prenume)
+        {
+            User user;
+            using (StreamReader streamReader = new StreamReader(numeFisier))
+            {
+                string linie;
+                while ((linie = streamReader.ReadLine()) != null)
+                {
+                    user = new User(linie);
+                    if (user.Nume == _nume && user.Prenume == _prenume)
+                    {
+                        return user;
+                    }
+                }
+            }
+            return null;
         }
     }
 }
