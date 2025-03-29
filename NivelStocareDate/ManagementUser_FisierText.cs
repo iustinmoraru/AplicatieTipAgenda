@@ -42,6 +42,7 @@ namespace NivelStocareDate
                     users[nrUsers++] = new User(linieFisier);
                 }
             }
+            Array.Resize(ref users, nrUsers);
             return users;
         }
 

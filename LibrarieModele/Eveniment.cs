@@ -47,26 +47,38 @@ namespace LibrarieModele
             return $"ID: {Id} Eveniment: {Titlu} Data: {Data:dd/MM/yyyy HH:mm} Descriere: {Descriere} Prioritate Eveniment: {PrioritateEveniment} Zile Saptamana: {ZileSelectate}\n";
         }
 
+        //public Eveniment(string linieFisier)
+        //{
+        //    string[] date = linieFisier.Split(SEPARATOR_PRINCIPAL_FISIER);
+
+        //    Array.Resize(ref date, 6);
+
+        //    Id = int.Parse(date[ID]);
+        //    Titlu = date[TITLU];
+        //    Data = DateTime.Parse(date[DATA]);
+        //    Descriere = date[DESCRIERE];
+        //    PrioritateEveniment = (EnumPentruPrioritateEveniment)Enum.Parse(typeof(EnumPentruPrioritateEveniment), date[PRIORITATE]);
+        //    if (!string.IsNullOrEmpty(date[ZILE_SAPTAMANA]))
+        //    {
+        //        ZileSelectate = (EnumPentruZiuaSaptamanii)Enum.Parse(typeof(EnumPentruZiuaSaptamanii), date[ZILE_SAPTAMANA]);
+        //    }
+        //    else
+        //    {
+        //        ZileSelectate = EnumPentruZiuaSaptamanii.Toate;
+        //    }
+        //}
         public Eveniment(string linieFisier)
         {
             string[] date = linieFisier.Split(SEPARATOR_PRINCIPAL_FISIER);
 
-            Array.Resize(ref date, 6);
-
-            Id = int.Parse(date[ID]);
-            Titlu = date[TITLU];
-            Data = DateTime.Parse(date[DATA]);
-            Descriere = date[DESCRIERE];
-            PrioritateEveniment = (EnumPentruPrioritateEveniment)Enum.Parse(typeof(EnumPentruPrioritateEveniment), date[PRIORITATE]);
-            if (!string.IsNullOrEmpty(date[ZILE_SAPTAMANA]))
-            {
-                ZileSelectate = (EnumPentruZiuaSaptamanii)Enum.Parse(typeof(EnumPentruZiuaSaptamanii), date[ZILE_SAPTAMANA]);
-            }
-            else
-            {
-                ZileSelectate = EnumPentruZiuaSaptamanii.Toate;
-            }
+            this.Id = Convert.ToInt32(date[ID]);
+            this.Titlu = date[TITLU];
+            this.Data = DateTime.Parse(date[DATA]);
+            this.Descriere = date[DESCRIERE];
+            this.PrioritateEveniment = (EnumPentruPrioritateEveniment)Enum.Parse(typeof(EnumPentruPrioritateEveniment), date[PRIORITATE]);
+            this.ZileSelectate = (EnumPentruZiuaSaptamanii)Enum.Parse(typeof(EnumPentruZiuaSaptamanii), date[ZILE_SAPTAMANA]);
         }
+
 
         public string ConversieLaSir_PentruFisier()
         {

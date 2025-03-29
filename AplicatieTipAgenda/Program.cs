@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using LibrarieModele;
 using NivelStocareDate;
 using Microsoft.Win32;
+using System.IO;
 
 namespace AplicatieTipAgenda
 {
@@ -17,8 +18,18 @@ namespace AplicatieTipAgenda
         static void Main()
         {
             ManagementAgenda_Memorie agenda = new ManagementAgenda_Memorie(100);
-            ManagementAgenda_FisierText agendaFisier = new ManagementAgenda_FisierText("evenimente.txt");
-            ManagementUser_FisierText managementUser = new ManagementUser_FisierText("useri.txt");
+            string numeFisier = ConfigurationManager.AppSettings["NumeFisier"];
+            string locatieFisierSolutie = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName;
+            // setare locatie fisier in directorul corespunzator solutiei
+            // astfel incat datele din fisier sa poata fi utilizate si de alte proiecte
+            string caleCompletaFisier = locatieFisierSolutie + "\\" + numeFisier;
+
+            string numeFisier2= ConfigurationManager.AppSettings["NumeFisier2"];
+            string locatieFisierSolutie2 = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName;
+            string caleCompletaFisier2 = locatieFisierSolutie2 + "\\" + numeFisier2;
+
+            ManagementAgenda_FisierText agendaFisier = new ManagementAgenda_FisierText(caleCompletaFisier);
+            ManagementUser_FisierText managementUser = new ManagementUser_FisierText(caleCompletaFisier2);
 
             int nrEvenimente;
             int nrUseri;

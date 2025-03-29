@@ -10,7 +10,7 @@ namespace NivelStocareDate
 {
     public class ManagementAgenda_FisierText
     {
-        private const int nr_max = 50;
+        private const int nr_max = 250;
         private string numeFisier;
         public ManagementAgenda_FisierText(string numeFisier)
         {
@@ -42,6 +42,8 @@ namespace NivelStocareDate
                     evenimente[nrEvenimente++] = new Eveniment(linieFisier);
                 }
             }
+
+            Array.Resize(ref evenimente, nrEvenimente);
 
             return evenimente;
         }
