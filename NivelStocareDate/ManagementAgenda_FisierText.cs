@@ -20,6 +20,8 @@ namespace NivelStocareDate
         }
         public void AdaugaEveniment(Eveniment eveniment, ref int nrEvenimente)
         {
+            Eveniment[] evenimente = GetEvenimente(out nrEvenimente);
+
             eveniment.Id = nrEvenimente;
             using (StreamWriter streamWriterFisierText = new StreamWriter(numeFisier, true))
             {

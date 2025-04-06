@@ -38,7 +38,7 @@ namespace LibrarieModele
             }
             else
             {
-                ZileSelectate = EnumPentruZiuaSaptamanii.Nimic;
+                ZileSelectate = EnumPentruZiuaSaptamanii.Toate;
             }
         }
 

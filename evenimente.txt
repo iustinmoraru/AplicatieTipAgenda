@@ -1,2 +1,4 @@
-0;asdasdasd;10.10.2010 10:10;asdasdasd;SCĂZUTĂ;Luni
-1;aadsasdads;05.05.2020 13:00;lklkkl;RIDICATĂ;Luni, Marti, Miercuri
+0;ev1;10.10.1010 10:10;d1;RIDICATĂ;Luni, Marti
+1;ev2;07.04.2025 10:00;d2;SCĂZUTĂ;Luni, Vineri, Sambata
+2;ev3;20.10.2024 15:00;d3;CRITICĂ;Duminica
+3;ev4;09.09.2020 00:00;d4;NORMALĂ;Marti, Miercuri, Vineri, Sambata

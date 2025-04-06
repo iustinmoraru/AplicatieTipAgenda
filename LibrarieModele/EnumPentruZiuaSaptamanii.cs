@@ -9,7 +9,6 @@ namespace LibrarieModele
     [Flags]
     public enum EnumPentruZiuaSaptamanii
     {
-        Nimic = 0,        // 0000000
         Luni = 1 << 0,    // 0000001
         Marti = 1 << 1,   // 0000010
         Miercuri = 1 << 2, // 0000100
