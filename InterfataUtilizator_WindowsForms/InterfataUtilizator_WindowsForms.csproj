@@ -33,15 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
-      <HintPath>..\packages\MetroFramework.RunTime.1.2.0.3\lib\net40-Client\MetroFramework.dll</HintPath>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
     </Reference>
-    <Reference Include="MetroFramework.Design, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
-      <HintPath>..\packages\MetroFramework.Design.1.2.0.3\lib\net40\MetroFramework.Design.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
     </Reference>
-    <Reference Include="MetroFramework.Fonts, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
-      <HintPath>..\packages\MetroFramework.Fonts.1.2.0.3\lib\net40\MetroFramework.Fonts.dll</HintPath>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -57,16 +56,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adăugare Eveniment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Adăugare Eveniment.Designer.cs">
+      <DependentUpon>Adăugare Eveniment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caută Eveniment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caută Eveniment.Designer.cs">
+      <DependentUpon>Caută Eveniment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Listă Evenimente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listă Evenimente.Designer.cs">
+      <DependentUpon>Listă Evenimente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Meniu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Meniu.Designer.cs">
+      <DependentUpon>Meniu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Adăugare Eveniment.resx">
+      <DependentUpon>Adăugare Eveniment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caută Eveniment.resx">
+      <DependentUpon>Caută Eveniment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listă Evenimente.resx">
+      <DependentUpon>Listă Evenimente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Meniu.resx">
+      <DependentUpon>Meniu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
