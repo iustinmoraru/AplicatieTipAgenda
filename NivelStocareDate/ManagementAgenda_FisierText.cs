@@ -10,7 +10,6 @@ namespace NivelStocareDate
 {
     public class ManagementAgenda_FisierText
     {
-        private const int nr_max = 250;
         private string numeFisier;
         public ManagementAgenda_FisierText(string numeFisier)
         {
@@ -18,41 +17,35 @@ namespace NivelStocareDate
             Stream streamFisierText = File.Open(numeFisier, FileMode.OpenOrCreate);
             streamFisierText.Close();
         }
-        public void AdaugaEveniment(Eveniment eveniment, ref int nrEvenimente)
+        public void AdaugaEveniment(Eveniment eveniment)
         {
-            Eveniment[] evenimente = GetEvenimente(out nrEvenimente);
-
-            eveniment.Id = nrEvenimente;
+            List<Eveniment> evenimente = GetEvenimente();
+            eveniment.Id = evenimente.Count;
             using (StreamWriter streamWriterFisierText = new StreamWriter(numeFisier, true))
             {
                 streamWriterFisierText.WriteLine(eveniment.ConversieLaSir_PentruFisier());
             }
-            nrEvenimente++;
         }
 
-        public Eveniment[] GetEvenimente(out int nrEvenimente)
+        public List<Eveniment> GetEvenimente()
         {
-            Eveniment[] evenimente = new Eveniment[nr_max];
+            List<Eveniment> evenimente = new List<Eveniment>();
 
             using (StreamReader streamReader = new StreamReader(numeFisier))
             {
                 string linieFisier;
-                nrEvenimente = 0;
-
                 while ((linieFisier = streamReader.ReadLine()) != null)
                 {
-                    evenimente[nrEvenimente++] = new Eveniment(linieFisier);
+                    evenimente.Add(new Eveniment(linieFisier));
                 }
             }
-
-            Array.Resize(ref evenimente, nrEvenimente);
 
             return evenimente;
         }
 
         public void StergeEvenimente(string titlu)
         {
-            string[] liniiFisier = File.ReadAllLines(numeFisier);
+            List<string> liniiFisier = File.ReadAllLines(numeFisier).ToList();
 
             using (StreamWriter streamWriter = new StreamWriter(numeFisier))
             {

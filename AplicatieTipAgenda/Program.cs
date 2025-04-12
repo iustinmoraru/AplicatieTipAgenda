@@ -31,11 +31,9 @@ namespace AplicatieTipAgenda
             ManagementAgenda_FisierText agendaFisier = new ManagementAgenda_FisierText(caleCompletaFisier);
             ManagementUser_FisierText managementUser = new ManagementUser_FisierText(caleCompletaFisier2);
 
-            int nrEvenimente;
-            int nrUseri;
 
-            agendaFisier.GetEvenimente(out nrEvenimente);
-            managementUser.GetUsers(out nrUseri);
+            agendaFisier.GetEvenimente();
+            managementUser.GetUsers();
 
             string optiune;
             do
@@ -81,26 +79,26 @@ namespace AplicatieTipAgenda
                         break;
 
                     case "D":
-                        agendaFisier.AdaugaEveniment(ev, ref nrEvenimente);
+                        agendaFisier.AdaugaEveniment(ev);
                         break;
 
                     case "E":
-                        Eveniment[] evenimente = agendaFisier.GetEvenimente(out nrEvenimente);
-                        for (int i = 0; i < nrEvenimente; i++)
+                        List<Eveniment> evenimente = agendaFisier.GetEvenimente().ToList();
+                        foreach (var eveniment in evenimente)
                         {
-                            Console.WriteLine(evenimente[i].ConversieLaSir_PentruFisier());
+                            Console.WriteLine(eveniment.ConversieLaSir_PentruFisier());
                         }
                         break;
 
                     case "J":
-                        managementUser.AdaugaUser(us, ref nrUseri);
+                        managementUser.AdaugaUser(us);
                         break;
 
                     case "I":
-                        User[] useri = managementUser.GetUsers(out nrEvenimente);
-                        for (int i = 0; i< nrEvenimente; i++)
+                        List<User> useri = managementUser.GetUsers();
+                        foreach (var user in useri)
                         {
-                            Console.WriteLine(useri[i].ConversieLaSir_PentruFisier());
+                            Console.WriteLine(user.ConversieLaSir_PentruFisier());
                         }
                         break;
 

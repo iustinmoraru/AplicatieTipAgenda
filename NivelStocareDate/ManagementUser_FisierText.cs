@@ -10,7 +10,6 @@ namespace NivelStocareDate
 {
     public class ManagementUser_FisierText
     {
-        private const int nr_max = 50;
         private string numeFisier;
 
         public ManagementUser_FisierText(string numeFisier)
@@ -20,63 +19,49 @@ namespace NivelStocareDate
             streamFisierText.Close();
         }
 
-        public void AdaugaUser(User user, ref int nrUseri)
+        public void AdaugaUser(User user)
         {
-            user.Id_User = nrUseri++;
+            user.Id_User = GetUsers().Count;
             using (StreamWriter streamWriterFisierText = new StreamWriter(numeFisier, true))
             {
                 streamWriterFisierText.WriteLine(user.ConversieLaSir_PentruFisier());
             }
         }
 
-        public User[] GetUsers(out int nrUsers)
+        public List<User> GetUsers()
         {
-            User[] users = new User[nr_max];
+            List<User> users = new List<User>();
 
             using (StreamReader streamReader = new StreamReader(numeFisier))
             {
                 string linieFisier;
-                nrUsers = 0;
                 while((linieFisier = streamReader.ReadLine()) != null)
                 {
-                    users[nrUsers++] = new User(linieFisier);
+                    users.Add(new User(linieFisier));
                 }
             }
-            Array.Resize(ref users, nrUsers);
+
             return users;
         }
 
         public void StergeUser(string nume, string prenume)
         {
-            string[] liniiFisier = File.ReadAllLines(numeFisier);
+            var users = GetUsers();
+            var usersFiltrati = users.Where(u => !(u.Nume == nume && u.Prenume == prenume)).ToList(); //pentru fiecare u gasit excludem acel User (functie Lambda)
+
             using (StreamWriter streamWriter = new StreamWriter(numeFisier))
             {
-                foreach (string linie in liniiFisier)
+                foreach (var user in usersFiltrati)
                 {
-                    if (!linie.Contains(nume) && !linie.Contains(prenume))
-                    {
-                        streamWriter.WriteLine(linie);
-                    }
+                    streamWriter.WriteLine(user.ConversieLaSir_PentruFisier());
                 }
             }
         }
 
         public User CautaUserinFisier(string _nume, string _prenume)
         {
-            User user;
-            using (StreamReader streamReader = new StreamReader(numeFisier))
-            {
-                string linie;
-                while ((linie = streamReader.ReadLine()) != null)
-                {
-                    user = new User(linie);
-                    if (user.Nume == _nume && user.Prenume == _prenume)
-                    {
-                        return user;
-                    }
-                }
-            }
-            return null;
+            var users = GetUsers();
+            return users.FirstOrDefault(u => u.Nume == _nume && u.Prenume == _prenume);
         }
     }
 }

@@ -11,42 +11,44 @@ using System.Windows.Forms;
 using LibrarieModele;
 using NivelStocareDate;
 using System.Configuration;
+using MetroFramework.Forms;
+using MetroFramework.Controls;
 
 namespace InterfataUtilizator_WindowsForms
 {
-    public partial class Form1 : Form
+    public partial class Form1 : MetroForm
     {
         ManagementAgenda_FisierText agendaFisier;
         ManagementUser_FisierText managementUser;
 
-        private Label lblNumeUser;
-        private Label lblPrenumeUser;
-        private Label lblGenUser;
+        private MetroLabel lblNumeUser;
+        private MetroLabel lblPrenumeUser;
+        private MetroLabel lblGenUser;
 
-        private Label lblNume;
-        private Label lblAdaugaNume;
-        private TextBox txtNume;
-        private Label lblData;
-        private Label lblAdaugaData;
-        private TextBox txtData;
-        private Label lblDescriere;
-        private Label lblAdaugaDescriere;
-        private TextBox txtDescriere;
-        private Label lblPrioritate;
-        private Label lblAdaugaPrioritate;
-        private ComboBox cmbPrioritate;
-        private Label lblZileSaptamana;
-        private Label lblAdaugaZileSaptamana;
+        private MetroLabel lblNume;
+        private MetroLabel lblAdaugaNume;
+        private MetroTextBox txtNume;
+        private MetroLabel lblData;
+        private MetroLabel lblAdaugaData;
+        private MetroTextBox txtData;
+        private MetroLabel lblDescriere;
+        private MetroLabel lblAdaugaDescriere;
+        private MetroTextBox txtDescriere;
+        private MetroLabel lblPrioritate;
+        private MetroLabel lblAdaugaPrioritate;
+        private MetroComboBox cmbPrioritate;
+        private MetroLabel lblZileSaptamana;
+        private MetroLabel lblAdaugaZileSaptamana;
         private CheckedListBox clbZileSaptamana;
 
-        private Label[] lblsNume;
-        private Label[] lblsData;
-        private Label[] lblsDescriere;
-        private Label[] lblsPrioritate;
-        private Label[] lblsZileSaptamana;
+        private MetroLabel[] lblsNume;
+        private MetroLabel[] lblsData;
+        private MetroLabel[] lblsDescriere;
+        private MetroLabel[] lblsPrioritate;
+        private MetroLabel[] lblsZileSaptamana;
 
-        private Button btnAdaugaEveniment;
-        private Button btnRefresh;
+        private MetroButton btnAdaugaEveniment;
+        private MetroButton btnRefresh;
 
         private const int LATIME_CONTROL = 100;
         private const int DIMENSIUNE_PAS_Y = 30;
@@ -68,11 +70,9 @@ namespace InterfataUtilizator_WindowsForms
             agendaFisier = new ManagementAgenda_FisierText(caleCompletaFisier);
             managementUser = new ManagementUser_FisierText(caleCompletaFisier2);
 
-            int nrEvenimente = 0;
-            int nrUseri = 0;
 
-            Eveniment[] evenimente = agendaFisier.GetEvenimente(out nrEvenimente);
-            User[] users = managementUser.GetUsers(out nrUseri);
+            List<Eveniment> evenimente = agendaFisier.GetEvenimente().ToList();
+            List<User> useri = managementUser.GetUsers().ToList();
 
             this.Size = new Size(800, 600);
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -82,31 +82,31 @@ namespace InterfataUtilizator_WindowsForms
 
 
             // Afisare useri
-            lblNumeUser = new Label();
+            lblNumeUser = new MetroLabel();
             lblNumeUser.Width = LATIME_CONTROL;
             this.Controls.Add(lblNumeUser);
 
-            lblPrenumeUser = new Label();
+            lblPrenumeUser = new MetroLabel();
             lblPrenumeUser.Width = LATIME_CONTROL;
             this.Controls.Add(lblPrenumeUser);
 
-            lblGenUser = new Label();
+            lblGenUser = new MetroLabel();
             lblGenUser.Width = LATIME_CONTROL;
             this.Controls.Add(lblGenUser);
 
             //Adaugare evenimente
-            lblAdaugaNume = new Label();
+            lblAdaugaNume = new MetroLabel();
             lblAdaugaNume.Text = "Nume";
             lblAdaugaNume.Left = DIMENSIUNE_PAS_X;
             lblAdaugaNume.AutoSize = true;
             this.Controls.Add(lblAdaugaNume);
 
-            txtNume = new TextBox();
+            txtNume = new MetroTextBox();
             txtNume.Width = LATIME_CONTROL;
             txtNume.Left = lblAdaugaNume.Right + 112;
             this.Controls.Add(txtNume);
 
-            lblAdaugaData = new Label();
+            lblAdaugaData = new MetroLabel();
             lblAdaugaData.Text = "Data (dd.mm.yyyy hh:mm)";
             lblAdaugaData.Width = LATIME_CONTROL;
             lblAdaugaData.Left = DIMENSIUNE_PAS_X;
@@ -114,33 +114,33 @@ namespace InterfataUtilizator_WindowsForms
             lblAdaugaData.AutoSize = true;
             this.Controls.Add(lblAdaugaData);
 
-            txtData = new TextBox();
+            txtData = new MetroTextBox();
             txtData.Width = LATIME_CONTROL;
             txtData.Left = lblAdaugaData.Right;
             txtData.Top = DIMENSIUNE_PAS_Y;
             this.Controls.Add(txtData);
 
-            lblAdaugaDescriere = new Label();
+            lblAdaugaDescriere = new MetroLabel();
             lblAdaugaDescriere.Text = "Descriere";
             lblAdaugaDescriere.Width = LATIME_CONTROL;
             lblAdaugaDescriere.Left = DIMENSIUNE_PAS_X;
             lblAdaugaDescriere.Top = 2 * DIMENSIUNE_PAS_Y;
             this.Controls.Add(lblAdaugaDescriere);
 
-            txtDescriere = new TextBox();
+            txtDescriere = new MetroTextBox();
             txtDescriere.Width = LATIME_CONTROL;
             txtDescriere.Left = lblAdaugaData.Right;
             txtDescriere.Top = 2 * DIMENSIUNE_PAS_Y;
             this.Controls.Add(txtDescriere);
 
-            lblAdaugaPrioritate = new Label();
+            lblAdaugaPrioritate = new MetroLabel();
             lblAdaugaPrioritate.Text = "Prioritate";
             lblAdaugaPrioritate.Width = LATIME_CONTROL;
             lblAdaugaPrioritate.Left = DIMENSIUNE_PAS_X;
             lblAdaugaPrioritate.Top = 3 * DIMENSIUNE_PAS_Y;
             this.Controls.Add(lblAdaugaPrioritate);
 
-            cmbPrioritate = new ComboBox();
+            cmbPrioritate = new MetroComboBox();
             cmbPrioritate.Width = LATIME_CONTROL;
             cmbPrioritate.Left = lblAdaugaData.Right;
             cmbPrioritate.Top = 3 * DIMENSIUNE_PAS_Y;
@@ -149,7 +149,7 @@ namespace InterfataUtilizator_WindowsForms
             cmbPrioritate.SelectedIndex = -1;
             this.Controls.Add(cmbPrioritate);
 
-            lblAdaugaZileSaptamana = new Label();
+            lblAdaugaZileSaptamana = new MetroLabel();
             lblAdaugaZileSaptamana.Text = "Zile saptamana";
             lblAdaugaZileSaptamana.Width = LATIME_CONTROL;
             lblAdaugaZileSaptamana.Left = DIMENSIUNE_PAS_X;
@@ -165,22 +165,22 @@ namespace InterfataUtilizator_WindowsForms
             this.Controls.Add(clbZileSaptamana);
 
             //Butoane
-            btnAdaugaEveniment = new Button();
+            btnAdaugaEveniment = new MetroButton();
             btnAdaugaEveniment.Text = "Adauga";
             btnAdaugaEveniment.Width = LATIME_CONTROL;
             btnAdaugaEveniment.Location = new System.Drawing.Point(DIMENSIUNE_PAS_X, 9 * DIMENSIUNE_PAS_Y);
-            btnAdaugaEveniment.Click += AdaugaEvenimentButton;
+            btnAdaugaEveniment.Click += AdaugaEvenimentMetroButton;
             this.Controls.Add(btnAdaugaEveniment);
 
-            btnRefresh = new Button();
+            btnRefresh = new MetroButton();
             btnRefresh.Text = "Refresh";
             btnRefresh.Width = LATIME_CONTROL;
             btnRefresh.Location = new System.Drawing.Point(2 * DIMENSIUNE_PAS_X, 9 * DIMENSIUNE_PAS_Y);
-            btnRefresh.Click += RefreshButton;
+            btnRefresh.Click += RefreshMetroButton;
             this.Controls.Add(btnRefresh);
 
             // Afisare evenimente
-            lblNume = new Label();
+            lblNume = new MetroLabel();
             lblNume.Width = LATIME_CONTROL;
             lblNume.Text = "Nume";
             lblNume.Left = DIMENSIUNE_PAS_X;
@@ -188,7 +188,7 @@ namespace InterfataUtilizator_WindowsForms
             lblNume.ForeColor = Color.DarkBlue;
             this.Controls.Add(lblNume);
 
-            lblData = new Label();
+            lblData = new MetroLabel();
             lblData.Width = LATIME_CONTROL;
             lblData.Text = "Data";
             lblData.Left = 2 * DIMENSIUNE_PAS_X;
@@ -196,7 +196,7 @@ namespace InterfataUtilizator_WindowsForms
             lblData.ForeColor = Color.DarkBlue;
             this.Controls.Add(lblData);
 
-            lblDescriere = new Label();
+            lblDescriere = new MetroLabel();
             lblDescriere.Width = LATIME_CONTROL;
             lblDescriere.Text = "Descriere";
             lblDescriere.Left = 3 * DIMENSIUNE_PAS_X;
@@ -204,7 +204,7 @@ namespace InterfataUtilizator_WindowsForms
             lblDescriere.ForeColor = Color.DarkBlue;
             this.Controls.Add(lblDescriere);
 
-            lblPrioritate = new Label();
+            lblPrioritate = new MetroLabel();
             lblPrioritate.Width = LATIME_CONTROL;
             lblPrioritate.Text = "Prioritate";
             lblPrioritate.Left = 4 * DIMENSIUNE_PAS_X;
@@ -212,7 +212,7 @@ namespace InterfataUtilizator_WindowsForms
             lblPrioritate.ForeColor = Color.DarkBlue;
             this.Controls.Add(lblPrioritate);
 
-            lblZileSaptamana = new Label();
+            lblZileSaptamana = new MetroLabel();
             lblZileSaptamana.Width = LATIME_CONTROL;
             lblZileSaptamana.Text = "Zile saptamana";
             lblZileSaptamana.Left = 5 * DIMENSIUNE_PAS_X;
@@ -276,7 +276,7 @@ namespace InterfataUtilizator_WindowsForms
         }
 
 
-        private void AdaugaEvenimentButton(object sender, EventArgs e)
+        private void AdaugaEvenimentMetroButton(object sender, EventArgs e)
         {
             string nume = txtNume.Text;
             string data = txtData.Text;
@@ -321,8 +321,7 @@ namespace InterfataUtilizator_WindowsForms
                 (int)cmbPrioritate.SelectedItem,
                 clbZileSaptamana.CheckedItems.Cast<EnumPentruZiuaSaptamanii>().Aggregate((a, b) => a | b).ToString()); // combina toate zilele selectate
 
-            int nrEvenimente = 0;
-            agendaFisier.AdaugaEveniment(eveniment, ref nrEvenimente);
+            agendaFisier.AdaugaEveniment(eveniment);
 
             txtNume.Clear();
             txtData.Clear();
@@ -331,7 +330,7 @@ namespace InterfataUtilizator_WindowsForms
             clbZileSaptamana.ClearSelected();
         }
 
-        private void RefreshButton(object sender, EventArgs e)
+        private void RefreshMetroButton(object sender, EventArgs e)
         {
             AfiseazaEvenimente();
         }
@@ -344,75 +343,73 @@ namespace InterfataUtilizator_WindowsForms
 
         private void AfisareUser()
         {
-            User[] useri = managementUser.GetUsers(out int nrUseri);
+            List<User> useri = managementUser.GetUsers().ToList();
 
-            if (nrUseri > 0)
-            {
-                User user = useri[0];
-                lblNumeUser.Text = user.Nume;
-                lblNumeUser.Left = 10;
-                lblNumeUser.Top = 10;
-                lblNumeUser.AutoSize = true;
-                this.Controls.Add(lblNumeUser);
+            User user = useri[0];
+            lblNumeUser.Text = user.Nume;
+            lblNumeUser.Left = 10;
+            lblNumeUser.Top = 10;
+            lblNumeUser.AutoSize = true;
+            this.Controls.Add(lblNumeUser);
 
-                lblPrenumeUser.Text = user.Prenume;
-                lblPrenumeUser.Left = lblNumeUser.Left + lblNumeUser.PreferredWidth + 5;
-                lblPrenumeUser.Top = 10;
-                lblPrenumeUser.AutoSize = true; 
-                this.Controls.Add(lblPrenumeUser);
+            lblPrenumeUser.Text = user.Prenume;
+            lblPrenumeUser.Left = lblNumeUser.Left + lblNumeUser.PreferredWidth + 5;
+            lblPrenumeUser.Top = 10;
+            lblPrenumeUser.AutoSize = true; 
+            this.Controls.Add(lblPrenumeUser);
 
-                lblGenUser.Text = user.Gen.ToString();
-                lblGenUser.Left = 10;
-                lblGenUser.Top = lblPrenumeUser.Bottom + 5;
-                lblGenUser.AutoSize = true;
-                this.Controls.Add(lblGenUser);
-            }
+            lblGenUser.Text = user.Gen.ToString();
+            lblGenUser.Left = 10;
+            lblGenUser.Top = lblPrenumeUser.Bottom + 5;
+            lblGenUser.AutoSize = true;
+            this.Controls.Add(lblGenUser);
 
         }
 
         private void AfiseazaEvenimente()
         {
-            Eveniment[] evenimente = agendaFisier.GetEvenimente(out int nrEvenimente);
+            List<Eveniment> evenimente = agendaFisier.GetEvenimente().ToList();
+            int nrEvenimente = evenimente.Count;
 
-            lblsNume = new Label[nrEvenimente];
-            lblsData = new Label[nrEvenimente];
-            lblsDescriere = new Label[nrEvenimente];    
-            lblsPrioritate = new Label[nrEvenimente];
-            lblsZileSaptamana = new Label[nrEvenimente];
+            lblsNume = new MetroLabel[nrEvenimente];
+            lblsData = new MetroLabel[nrEvenimente];
+            lblsDescriere = new MetroLabel[nrEvenimente];    
+            lblsPrioritate = new MetroLabel[nrEvenimente];
+            lblsZileSaptamana = new MetroLabel[nrEvenimente];
 
             int i = 0;
 
             foreach (Eveniment eveniment in evenimente)
             { 
-                lblsNume[i] = new Label();
+                lblsNume[i] = new MetroLabel();
                 lblsNume[i].Width = LATIME_CONTROL;
                 lblsNume[i].Text = eveniment.Titlu;
                 lblsNume[i].Left = DIMENSIUNE_PAS_X;
                 lblsNume[i].Top = lblZileSaptamana.Bottom + (i + 1) * DIMENSIUNE_PAS_Y;
                 this.Controls.Add(lblsNume[i]);
 
-                lblsData[i] = new Label();
+                lblsData[i] = new MetroLabel();
                 lblsData[i].Width = LATIME_CONTROL;
                 lblsData[i].Text = eveniment.Data.ToString();
                 lblsData[i].Left = 2 * DIMENSIUNE_PAS_X;
                 lblsData[i].Top = lblZileSaptamana.Bottom + (i + 1) * DIMENSIUNE_PAS_Y;
                 this.Controls.Add(lblsData[i]);
 
-                lblsDescriere[i] = new Label();
+                lblsDescriere[i] = new MetroLabel();
                 lblsDescriere[i].Width = LATIME_CONTROL;
                 lblsDescriere[i].Text = eveniment.Descriere;
                 lblsDescriere[i].Left = 3 * DIMENSIUNE_PAS_X;
                 lblsDescriere[i].Top = lblZileSaptamana.Bottom + (i + 1) * DIMENSIUNE_PAS_Y;
                 this.Controls.Add(lblsDescriere[i]);
 
-                lblsPrioritate[i] = new Label();
+                lblsPrioritate[i] = new MetroLabel();
                 lblsPrioritate[i].Width = LATIME_CONTROL;
                 lblsPrioritate[i].Text = eveniment.PrioritateEveniment.ToString();
                 lblsPrioritate[i].Left = 4 * DIMENSIUNE_PAS_X;
                 lblsPrioritate[i].Top = lblZileSaptamana.Bottom + (i + 1) * DIMENSIUNE_PAS_Y;
                 this.Controls.Add(lblsPrioritate[i]);
 
-                lblsZileSaptamana[i] = new Label();
+                lblsZileSaptamana[i] = new MetroLabel();
                 lblsZileSaptamana[i].Width = LATIME_CONTROL + 100;
                 lblsZileSaptamana[i].Text = eveniment.ZileSelectate.ToString();
                 lblsZileSaptamana[i].Left = 5 * DIMENSIUNE_PAS_X;

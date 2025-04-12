@@ -2,3 +2,4 @@
 1;ev2;07.04.2025 10:00;d2;SCĂZUTĂ;Luni, Vineri, Sambata
 2;ev3;20.10.2024 15:00;d3;CRITICĂ;Duminica
 3;ev4;09.09.2020 00:00;d4;NORMALĂ;Marti, Miercuri, Vineri, Sambata
+4;aa;10.10.1010 01:10;asdads;NORMALĂ;Miercuri, Vineri
