@@ -30,7 +30,7 @@
         {
             this.AdaugareButton = new MetroFramework.Controls.MetroTile();
             this.ListaEvenimenteButton = new MetroFramework.Controls.MetroTile();
-            this.metroTile1 = new MetroFramework.Controls.MetroTile();
+            this.CautaEvenimentButton = new MetroFramework.Controls.MetroTile();
             this.lblNumeUser = new MetroFramework.Controls.MetroLabel();
             this.lblPrenumeUser = new MetroFramework.Controls.MetroLabel();
             this.lblGenUser = new MetroFramework.Controls.MetroLabel();
@@ -66,19 +66,20 @@
             this.ListaEvenimenteButton.UseSelectable = true;
             this.ListaEvenimenteButton.Click += new System.EventHandler(this.ListaEvenimenteButton_Click);
             // 
-            // metroTile1
+            // CautaEvenimentButton
             // 
-            this.metroTile1.ActiveControl = null;
-            this.metroTile1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.metroTile1.Location = new System.Drawing.Point(200, 292);
-            this.metroTile1.Name = "metroTile1";
-            this.metroTile1.Size = new System.Drawing.Size(200, 80);
-            this.metroTile1.Style = MetroFramework.MetroColorStyle.Red;
-            this.metroTile1.TabIndex = 2;
-            this.metroTile1.Text = "Caută Eveniment";
-            this.metroTile1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroTile1.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
-            this.metroTile1.UseSelectable = true;
+            this.CautaEvenimentButton.ActiveControl = null;
+            this.CautaEvenimentButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CautaEvenimentButton.Location = new System.Drawing.Point(200, 292);
+            this.CautaEvenimentButton.Name = "CautaEvenimentButton";
+            this.CautaEvenimentButton.Size = new System.Drawing.Size(200, 80);
+            this.CautaEvenimentButton.Style = MetroFramework.MetroColorStyle.Red;
+            this.CautaEvenimentButton.TabIndex = 2;
+            this.CautaEvenimentButton.Text = "Caută Eveniment";
+            this.CautaEvenimentButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.CautaEvenimentButton.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.CautaEvenimentButton.UseSelectable = true;
+            this.CautaEvenimentButton.Click += new System.EventHandler(this.CautaEvenimentButton_Click);
             // 
             // lblNumeUser
             // 
@@ -118,7 +119,7 @@
             this.Controls.Add(this.lblGenUser);
             this.Controls.Add(this.lblPrenumeUser);
             this.Controls.Add(this.lblNumeUser);
-            this.Controls.Add(this.metroTile1);
+            this.Controls.Add(this.CautaEvenimentButton);
             this.Controls.Add(this.ListaEvenimenteButton);
             this.Controls.Add(this.AdaugareButton);
             this.Name = "Meniu";
@@ -134,7 +135,7 @@
 
         private MetroFramework.Controls.MetroTile AdaugareButton;
         private MetroFramework.Controls.MetroTile ListaEvenimenteButton;
-        private MetroFramework.Controls.MetroTile metroTile1;
+        private MetroFramework.Controls.MetroTile CautaEvenimentButton;
         private MetroFramework.Controls.MetroLabel lblNumeUser;
         private MetroFramework.Controls.MetroLabel lblPrenumeUser;
         private MetroFramework.Controls.MetroLabel lblGenUser;

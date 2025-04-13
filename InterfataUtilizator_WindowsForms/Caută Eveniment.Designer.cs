@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.lblCautareNume = new MetroFramework.Controls.MetroLabel();
-            this.txtNume = new MetroFramework.Controls.MetroTextBox();
+            this.txtNumeCautat = new MetroFramework.Controls.MetroTextBox();
             this.btnCauta = new MetroFramework.Controls.MetroTile();
+            this.btnBack = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
             // lblCautareNume
@@ -43,40 +44,40 @@
             this.lblCautareNume.TabIndex = 0;
             this.lblCautareNume.Text = "Nume";
             // 
-            // txtNume
+            // txtNumeCautat
             // 
             // 
             // 
             // 
-            this.txtNume.CustomButton.Image = null;
-            this.txtNume.CustomButton.Location = new System.Drawing.Point(76, 1);
-            this.txtNume.CustomButton.Name = "";
-            this.txtNume.CustomButton.Size = new System.Drawing.Size(23, 23);
-            this.txtNume.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtNume.CustomButton.TabIndex = 1;
-            this.txtNume.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtNume.CustomButton.UseSelectable = true;
-            this.txtNume.CustomButton.Visible = false;
-            this.txtNume.Lines = new string[0];
-            this.txtNume.Location = new System.Drawing.Point(146, 112);
-            this.txtNume.MaxLength = 32767;
-            this.txtNume.Name = "txtNume";
-            this.txtNume.PasswordChar = '\0';
-            this.txtNume.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtNume.SelectedText = "";
-            this.txtNume.SelectionLength = 0;
-            this.txtNume.SelectionStart = 0;
-            this.txtNume.ShortcutsEnabled = true;
-            this.txtNume.Size = new System.Drawing.Size(100, 25);
-            this.txtNume.TabIndex = 6;
-            this.txtNume.UseSelectable = true;
-            this.txtNume.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtNume.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtNumeCautat.CustomButton.Image = null;
+            this.txtNumeCautat.CustomButton.Location = new System.Drawing.Point(189, 1);
+            this.txtNumeCautat.CustomButton.Name = "";
+            this.txtNumeCautat.CustomButton.Size = new System.Drawing.Size(23, 23);
+            this.txtNumeCautat.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtNumeCautat.CustomButton.TabIndex = 1;
+            this.txtNumeCautat.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtNumeCautat.CustomButton.UseSelectable = true;
+            this.txtNumeCautat.CustomButton.Visible = false;
+            this.txtNumeCautat.Lines = new string[0];
+            this.txtNumeCautat.Location = new System.Drawing.Point(146, 112);
+            this.txtNumeCautat.MaxLength = 32767;
+            this.txtNumeCautat.Name = "txtNumeCautat";
+            this.txtNumeCautat.PasswordChar = '\0';
+            this.txtNumeCautat.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtNumeCautat.SelectedText = "";
+            this.txtNumeCautat.SelectionLength = 0;
+            this.txtNumeCautat.SelectionStart = 0;
+            this.txtNumeCautat.ShortcutsEnabled = true;
+            this.txtNumeCautat.Size = new System.Drawing.Size(213, 25);
+            this.txtNumeCautat.TabIndex = 6;
+            this.txtNumeCautat.UseSelectable = true;
+            this.txtNumeCautat.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtNumeCautat.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // btnCauta
             // 
             this.btnCauta.ActiveControl = null;
-            this.btnCauta.Location = new System.Drawing.Point(77, 163);
+            this.btnCauta.Location = new System.Drawing.Point(131, 158);
             this.btnCauta.Name = "btnCauta";
             this.btnCauta.Size = new System.Drawing.Size(169, 49);
             this.btnCauta.Style = MetroFramework.MetroColorStyle.Red;
@@ -88,13 +89,24 @@
             this.btnCauta.UseSelectable = true;
             this.btnCauta.Click += new System.EventHandler(this.btnCauta_Click);
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(188, 213);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(55, 21);
+            this.btnBack.TabIndex = 16;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseSelectable = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // Caută_Eveniment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(430, 360);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnCauta);
-            this.Controls.Add(this.txtNume);
+            this.Controls.Add(this.txtNumeCautat);
             this.Controls.Add(this.lblCautareNume);
             this.Name = "Caută_Eveniment";
             this.Style = MetroFramework.MetroColorStyle.Red;
@@ -108,7 +120,8 @@
         #endregion
 
         private MetroFramework.Controls.MetroLabel lblCautareNume;
-        private MetroFramework.Controls.MetroTextBox txtNume;
+        private MetroFramework.Controls.MetroTextBox txtNumeCautat;
         private MetroFramework.Controls.MetroTile btnCauta;
+        private MetroFramework.Controls.MetroButton btnBack;
     }
 }

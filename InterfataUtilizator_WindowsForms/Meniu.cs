@@ -53,5 +53,11 @@ namespace InterfataUtilizator_WindowsForms
             Listă_Evenimente listăEvenimente = new Listă_Evenimente();
             listăEvenimente.ShowDialog();
         }
+
+        private void CautaEvenimentButton_Click(object sender, EventArgs e)
+        {
+            Caută_Eveniment cautăEveniment = new Caută_Eveniment();
+            cautăEveniment.ShowDialog();
+        }
     }
 }

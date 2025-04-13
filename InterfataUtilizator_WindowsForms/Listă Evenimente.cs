@@ -54,6 +54,13 @@ namespace InterfataUtilizator_WindowsForms
             AfiseazaPagina(paginaCurenta);
         }
 
+        public Listă_Evenimente(List<Eveniment> evenimenteFiltrate)
+        {
+            InitializeComponent();
+            this.evenimente = evenimenteFiltrate;
+        }
+
+
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();

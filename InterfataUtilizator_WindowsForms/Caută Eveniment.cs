@@ -9,14 +9,28 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework.Forms;
 using MetroFramework.Controls;
+using NivelStocareDate;
+using System.Configuration;
+using System.IO;
+using LibrarieModele;
 
 namespace InterfataUtilizator_WindowsForms
 {
     public partial class Caută_Eveniment: MetroForm
     {
+        private ManagementAgenda_FisierText agendaFisier;
+
         public Caută_Eveniment()
         {
             InitializeComponent();
+            string numeFisier = ConfigurationManager.AppSettings["NumeFisier"];
+            string locatieFisierSolutie = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName;
+            // setare locatie fisier in directorul corespunzator solutiei
+            // astfel incat datele din fisier sa poata fi utilizate si de alte proiecte
+            string caleCompletaFisier = locatieFisierSolutie + "\\" + numeFisier;
+
+            agendaFisier = new ManagementAgenda_FisierText(caleCompletaFisier);
+            
         }
 
         private void Caută_Eveniment_Load(object sender, EventArgs e)
@@ -26,7 +40,21 @@ namespace InterfataUtilizator_WindowsForms
 
         private void btnCauta_Click(object sender, EventArgs e)
         {
+            string numeCautat = txtNumeCautat.Text.Trim();
+            List<Eveniment> toateEvenimentele = agendaFisier.GetEvenimente();
+            // Filtrăm evenimentele după titlu
+            List<Eveniment> evenimenteFiltrate = toateEvenimentele
+                .Where(ev => ev.Titlu.IndexOf(numeCautat, StringComparison.OrdinalIgnoreCase) >= 0)
+                .ToList();
 
+            // Deschidem fereastra Listă_Evenimente cu lista filtrată
+            Listă_Evenimente formLista = new Listă_Evenimente(evenimenteFiltrate);
+            formLista.ShowDialog();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
