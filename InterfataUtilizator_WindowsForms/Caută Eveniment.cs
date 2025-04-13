@@ -21,7 +21,7 @@ namespace InterfataUtilizator_WindowsForms
 
         private void Caută_Eveniment_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnCauta_Click(object sender, EventArgs e)

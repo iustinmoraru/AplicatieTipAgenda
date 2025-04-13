@@ -37,14 +37,14 @@
             this.txtDescriere = new MetroFramework.Controls.MetroTextBox();
             this.cmbPrioritate = new MetroFramework.Controls.MetroComboBox();
             this.groupZileSaptamana = new System.Windows.Forms.GroupBox();
-            this.metroCheckBox1 = new MetroFramework.Controls.MetroCheckBox();
-            this.metroCheckBox2 = new MetroFramework.Controls.MetroCheckBox();
-            this.metroCheckBox3 = new MetroFramework.Controls.MetroCheckBox();
-            this.metroCheckBox4 = new MetroFramework.Controls.MetroCheckBox();
-            this.metroCheckBox5 = new MetroFramework.Controls.MetroCheckBox();
-            this.metroCheckBox6 = new MetroFramework.Controls.MetroCheckBox();
-            this.metroCheckBox7 = new MetroFramework.Controls.MetroCheckBox();
             this.metroCheckBox8 = new MetroFramework.Controls.MetroCheckBox();
+            this.metroCheckBox7 = new MetroFramework.Controls.MetroCheckBox();
+            this.metroCheckBox6 = new MetroFramework.Controls.MetroCheckBox();
+            this.metroCheckBox5 = new MetroFramework.Controls.MetroCheckBox();
+            this.metroCheckBox4 = new MetroFramework.Controls.MetroCheckBox();
+            this.metroCheckBox3 = new MetroFramework.Controls.MetroCheckBox();
+            this.metroCheckBox2 = new MetroFramework.Controls.MetroCheckBox();
+            this.metroCheckBox1 = new MetroFramework.Controls.MetroCheckBox();
             this.btnAdauga = new MetroFramework.Controls.MetroTile();
             this.btnBack = new MetroFramework.Controls.MetroButton();
             this.groupZileSaptamana.SuspendLayout();
@@ -187,6 +187,7 @@
             this.cmbPrioritate.Location = new System.Drawing.Point(355, 211);
             this.cmbPrioritate.Name = "cmbPrioritate";
             this.cmbPrioritate.Size = new System.Drawing.Size(100, 29);
+            this.cmbPrioritate.Style = MetroFramework.MetroColorStyle.Red;
             this.cmbPrioritate.TabIndex = 11;
             this.cmbPrioritate.UseSelectable = true;
             // 
@@ -208,65 +209,16 @@
             this.groupZileSaptamana.TabStop = false;
             this.groupZileSaptamana.Text = "Zile Săptămână";
             // 
-            // metroCheckBox1
+            // metroCheckBox8
             // 
-            this.metroCheckBox1.AutoSize = true;
-            this.metroCheckBox1.Location = new System.Drawing.Point(6, 22);
-            this.metroCheckBox1.Name = "metroCheckBox1";
-            this.metroCheckBox1.Size = new System.Drawing.Size(46, 15);
-            this.metroCheckBox1.TabIndex = 0;
-            this.metroCheckBox1.Text = "Luni";
-            this.metroCheckBox1.UseSelectable = true;
-            // 
-            // metroCheckBox2
-            // 
-            this.metroCheckBox2.AutoSize = true;
-            this.metroCheckBox2.Location = new System.Drawing.Point(6, 43);
-            this.metroCheckBox2.Name = "metroCheckBox2";
-            this.metroCheckBox2.Size = new System.Drawing.Size(51, 15);
-            this.metroCheckBox2.TabIndex = 1;
-            this.metroCheckBox2.Text = "Marti";
-            this.metroCheckBox2.UseSelectable = true;
-            // 
-            // metroCheckBox3
-            // 
-            this.metroCheckBox3.AutoSize = true;
-            this.metroCheckBox3.Location = new System.Drawing.Point(6, 64);
-            this.metroCheckBox3.Name = "metroCheckBox3";
-            this.metroCheckBox3.Size = new System.Drawing.Size(67, 15);
-            this.metroCheckBox3.TabIndex = 2;
-            this.metroCheckBox3.Text = "Miercuri";
-            this.metroCheckBox3.UseSelectable = true;
-            // 
-            // metroCheckBox4
-            // 
-            this.metroCheckBox4.AutoSize = true;
-            this.metroCheckBox4.Location = new System.Drawing.Point(6, 85);
-            this.metroCheckBox4.Name = "metroCheckBox4";
-            this.metroCheckBox4.Size = new System.Drawing.Size(37, 15);
-            this.metroCheckBox4.TabIndex = 3;
-            this.metroCheckBox4.Text = "Joi";
-            this.metroCheckBox4.UseSelectable = true;
-            // 
-            // metroCheckBox5
-            // 
-            this.metroCheckBox5.AutoSize = true;
-            this.metroCheckBox5.Location = new System.Drawing.Point(175, 22);
-            this.metroCheckBox5.Name = "metroCheckBox5";
-            this.metroCheckBox5.Size = new System.Drawing.Size(53, 15);
-            this.metroCheckBox5.TabIndex = 4;
-            this.metroCheckBox5.Text = "Vineri";
-            this.metroCheckBox5.UseSelectable = true;
-            // 
-            // metroCheckBox6
-            // 
-            this.metroCheckBox6.AutoSize = true;
-            this.metroCheckBox6.Location = new System.Drawing.Point(175, 43);
-            this.metroCheckBox6.Name = "metroCheckBox6";
-            this.metroCheckBox6.Size = new System.Drawing.Size(69, 15);
-            this.metroCheckBox6.TabIndex = 5;
-            this.metroCheckBox6.Text = "Sâmbătă";
-            this.metroCheckBox6.UseSelectable = true;
+            this.metroCheckBox8.AutoSize = true;
+            this.metroCheckBox8.Location = new System.Drawing.Point(175, 85);
+            this.metroCheckBox8.Name = "metroCheckBox8";
+            this.metroCheckBox8.Size = new System.Drawing.Size(52, 15);
+            this.metroCheckBox8.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroCheckBox8.TabIndex = 7;
+            this.metroCheckBox8.Text = "Toate";
+            this.metroCheckBox8.UseSelectable = true;
             // 
             // metroCheckBox7
             // 
@@ -274,19 +226,76 @@
             this.metroCheckBox7.Location = new System.Drawing.Point(175, 64);
             this.metroCheckBox7.Name = "metroCheckBox7";
             this.metroCheckBox7.Size = new System.Drawing.Size(74, 15);
+            this.metroCheckBox7.Style = MetroFramework.MetroColorStyle.Red;
             this.metroCheckBox7.TabIndex = 6;
             this.metroCheckBox7.Text = "Duminică";
             this.metroCheckBox7.UseSelectable = true;
             // 
-            // metroCheckBox8
+            // metroCheckBox6
             // 
-            this.metroCheckBox8.AutoSize = true;
-            this.metroCheckBox8.Location = new System.Drawing.Point(175, 85);
-            this.metroCheckBox8.Name = "metroCheckBox8";
-            this.metroCheckBox8.Size = new System.Drawing.Size(52, 15);
-            this.metroCheckBox8.TabIndex = 7;
-            this.metroCheckBox8.Text = "Toate";
-            this.metroCheckBox8.UseSelectable = true;
+            this.metroCheckBox6.AutoSize = true;
+            this.metroCheckBox6.Location = new System.Drawing.Point(175, 43);
+            this.metroCheckBox6.Name = "metroCheckBox6";
+            this.metroCheckBox6.Size = new System.Drawing.Size(69, 15);
+            this.metroCheckBox6.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroCheckBox6.TabIndex = 5;
+            this.metroCheckBox6.Text = "Sâmbătă";
+            this.metroCheckBox6.UseSelectable = true;
+            // 
+            // metroCheckBox5
+            // 
+            this.metroCheckBox5.AutoSize = true;
+            this.metroCheckBox5.Location = new System.Drawing.Point(175, 22);
+            this.metroCheckBox5.Name = "metroCheckBox5";
+            this.metroCheckBox5.Size = new System.Drawing.Size(53, 15);
+            this.metroCheckBox5.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroCheckBox5.TabIndex = 4;
+            this.metroCheckBox5.Text = "Vineri";
+            this.metroCheckBox5.UseSelectable = true;
+            // 
+            // metroCheckBox4
+            // 
+            this.metroCheckBox4.AutoSize = true;
+            this.metroCheckBox4.Location = new System.Drawing.Point(6, 85);
+            this.metroCheckBox4.Name = "metroCheckBox4";
+            this.metroCheckBox4.Size = new System.Drawing.Size(37, 15);
+            this.metroCheckBox4.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroCheckBox4.TabIndex = 3;
+            this.metroCheckBox4.Text = "Joi";
+            this.metroCheckBox4.UseSelectable = true;
+            // 
+            // metroCheckBox3
+            // 
+            this.metroCheckBox3.AutoSize = true;
+            this.metroCheckBox3.Location = new System.Drawing.Point(6, 64);
+            this.metroCheckBox3.Name = "metroCheckBox3";
+            this.metroCheckBox3.Size = new System.Drawing.Size(67, 15);
+            this.metroCheckBox3.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroCheckBox3.TabIndex = 2;
+            this.metroCheckBox3.Text = "Miercuri";
+            this.metroCheckBox3.UseSelectable = true;
+            // 
+            // metroCheckBox2
+            // 
+            this.metroCheckBox2.AutoSize = true;
+            this.metroCheckBox2.Location = new System.Drawing.Point(6, 43);
+            this.metroCheckBox2.Name = "metroCheckBox2";
+            this.metroCheckBox2.Size = new System.Drawing.Size(51, 15);
+            this.metroCheckBox2.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroCheckBox2.TabIndex = 1;
+            this.metroCheckBox2.Text = "Marti";
+            this.metroCheckBox2.UseSelectable = true;
+            // 
+            // metroCheckBox1
+            // 
+            this.metroCheckBox1.AutoSize = true;
+            this.metroCheckBox1.Location = new System.Drawing.Point(6, 22);
+            this.metroCheckBox1.Name = "metroCheckBox1";
+            this.metroCheckBox1.Size = new System.Drawing.Size(46, 15);
+            this.metroCheckBox1.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroCheckBox1.TabIndex = 0;
+            this.metroCheckBox1.Text = "Luni";
+            this.metroCheckBox1.UseSelectable = true;
             // 
             // btnAdauga
             // 

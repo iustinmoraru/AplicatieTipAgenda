@@ -1,5 +1,29 @@
-0;ev1;10.10.1010 10:10;d1;RIDICATĂ;Luni, Marti
-1;ev2;07.04.2025 10:00;d2;SCĂZUTĂ;Luni, Vineri, Sambata
-2;ev3;20.10.2024 15:00;d3;CRITICĂ;Duminica
-3;ev4;09.09.2020 00:00;d4;NORMALĂ;Marti, Miercuri, Vineri, Sambata
-4;aa;10.10.1010 01:10;asdads;NORMALĂ;Miercuri, Vineri
+0;asdasd;10.10.1010 10:10;asdasd;SCĂZUTĂ;Luni, Marti
+1;asdasd;10.10.1010 10:10;asdasd;SCĂZUTĂ;Luni, Marti
+2;asdasd;10.10.1010 10:10;asdasd;SCĂZUTĂ;Luni, Marti
+3;asdasd;10.10.1010 10:10;asdasd;SCĂZUTĂ;Luni, Marti
+4;asdasd;10.10.1010 10:10;asdasd;SCĂZUTĂ;Luni, Marti
+5;asdasd;10.10.1010 10:10;asdasd;SCĂZUTĂ;Luni, Marti
+6;asdasd;10.10.1010 10:10;asdasd;SCĂZUTĂ;Luni, Marti
+7;asdasd;10.10.1010 10:10;asdasd;SCĂZUTĂ;Luni, Marti
+8;asdasd;10.10.1010 10:10;asdasd;SCĂZUTĂ;Luni, Marti
+9;asdasd;10.10.1010 10:10;asdasd;SCĂZUTĂ;Luni, Marti
+10;asdasd;10.10.1010 10:10;asdasd;SCĂZUTĂ;Luni, Marti
+11;asdasd;10.10.1010 10:10;asdasd;SCĂZUTĂ;Luni, Marti
+12;asdasd;10.10.1010 10:10;asdasd;SCĂZUTĂ;Luni, Marti
+13;asdasd;10.10.1010 10:10;asdasd;SCĂZUTĂ;Luni, Marti
+14;asdasd;10.10.1010 10:10;asdasd;SCĂZUTĂ;Luni, Marti
+15;asdasd;10.10.1010 10:10;asdasd;SCĂZUTĂ;Luni, Marti
+16;asdasd;10.10.1010 10:10;asdasd;SCĂZUTĂ;Luni, Marti
+17;asdasd;10.10.1010 10:10;asdasd;SCĂZUTĂ;Luni, Marti
+18;asdasd;10.10.1010 10:10;asdasd;SCĂZUTĂ;Luni, Marti
+19;asdasd;10.10.1010 10:10;asdasd;SCĂZUTĂ;Luni, Marti
+20;asdasd;10.10.1010 10:10;asdasd;SCĂZUTĂ;Luni, Marti
+21;asdasd;10.10.1010 10:10;asdasd;SCĂZUTĂ;Luni, Marti
+22;asdasd;10.10.1010 10:10;asdasd;SCĂZUTĂ;Luni, Marti
+23;asdasd;10.10.1010 10:10;asdasd;SCĂZUTĂ;Luni, Marti
+24;asdasd;10.10.1010 10:10;asdasd;SCĂZUTĂ;Luni, Marti
+25;errtrt;04.04.2004 14:20;fdfdfd;RIDICATĂ;0
+26;errtrt;04.04.2004 14:20;fdfdfd;RIDICATĂ;0
+27;errtrt;04.04.2004 14:20;fdfdfd;RIDICATĂ;0
+28;errtrt;04.04.2004 14:20;fdfdfd;RIDICATĂ;0

@@ -31,6 +31,9 @@
             this.AdaugareButton = new MetroFramework.Controls.MetroTile();
             this.ListaEvenimenteButton = new MetroFramework.Controls.MetroTile();
             this.metroTile1 = new MetroFramework.Controls.MetroTile();
+            this.lblNumeUser = new MetroFramework.Controls.MetroLabel();
+            this.lblPrenumeUser = new MetroFramework.Controls.MetroLabel();
+            this.lblGenUser = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // AdaugareButton
@@ -77,11 +80,44 @@
             this.metroTile1.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.metroTile1.UseSelectable = true;
             // 
+            // lblNumeUser
+            // 
+            this.lblNumeUser.AutoSize = true;
+            this.lblNumeUser.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.lblNumeUser.Location = new System.Drawing.Point(23, 60);
+            this.lblNumeUser.Name = "lblNumeUser";
+            this.lblNumeUser.Size = new System.Drawing.Size(49, 19);
+            this.lblNumeUser.TabIndex = 3;
+            this.lblNumeUser.Text = "Nume";
+            // 
+            // lblPrenumeUser
+            // 
+            this.lblPrenumeUser.AutoSize = true;
+            this.lblPrenumeUser.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.lblPrenumeUser.Location = new System.Drawing.Point(78, 60);
+            this.lblPrenumeUser.Name = "lblPrenumeUser";
+            this.lblPrenumeUser.Size = new System.Drawing.Size(69, 19);
+            this.lblPrenumeUser.TabIndex = 4;
+            this.lblPrenumeUser.Text = "Prenume";
+            // 
+            // lblGenUser
+            // 
+            this.lblGenUser.AutoSize = true;
+            this.lblGenUser.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.lblGenUser.Location = new System.Drawing.Point(23, 79);
+            this.lblGenUser.Name = "lblGenUser";
+            this.lblGenUser.Size = new System.Drawing.Size(35, 19);
+            this.lblGenUser.TabIndex = 5;
+            this.lblGenUser.Text = "Gen";
+            // 
             // Meniu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 600);
+            this.Controls.Add(this.lblGenUser);
+            this.Controls.Add(this.lblPrenumeUser);
+            this.Controls.Add(this.lblNumeUser);
             this.Controls.Add(this.metroTile1);
             this.Controls.Add(this.ListaEvenimenteButton);
             this.Controls.Add(this.AdaugareButton);
@@ -90,6 +126,7 @@
             this.Text = "Meniu";
             this.Load += new System.EventHandler(this.Meniu_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -98,5 +135,8 @@
         private MetroFramework.Controls.MetroTile AdaugareButton;
         private MetroFramework.Controls.MetroTile ListaEvenimenteButton;
         private MetroFramework.Controls.MetroTile metroTile1;
+        private MetroFramework.Controls.MetroLabel lblNumeUser;
+        private MetroFramework.Controls.MetroLabel lblPrenumeUser;
+        private MetroFramework.Controls.MetroLabel lblGenUser;
     }
 }
