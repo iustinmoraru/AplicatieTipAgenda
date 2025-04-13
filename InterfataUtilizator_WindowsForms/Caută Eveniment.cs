@@ -41,11 +41,24 @@ namespace InterfataUtilizator_WindowsForms
         private void btnCauta_Click(object sender, EventArgs e)
         {
             string numeCautat = txtNumeCautat.Text.Trim();
+
+            if (string.IsNullOrEmpty(numeCautat))
+            {
+                MessageBox.Show("Introdu un nume pentru căutare!", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             List<Eveniment> toateEvenimentele = agendaFisier.GetEvenimente();
             // Filtrăm evenimentele după titlu
             List<Eveniment> evenimenteFiltrate = toateEvenimentele
                 .Where(ev => ev.Titlu.IndexOf(numeCautat, StringComparison.OrdinalIgnoreCase) >= 0)
                 .ToList();
+
+            if (evenimenteFiltrate.Count == 0)
+            {
+                MessageBox.Show("Nu s-au găsit evenimente cu acest nume", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             // Deschidem fereastra Listă_Evenimente cu lista filtrată
             Listă_Evenimente formLista = new Listă_Evenimente(evenimenteFiltrate);

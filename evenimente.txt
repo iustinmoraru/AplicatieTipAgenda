@@ -27,3 +27,5 @@
 26;errtrt;04.04.2004 14:20;fdfdfd;RIDICATĂ;0
 27;errtrt;04.04.2004 14:20;fdfdfd;RIDICATĂ;0
 28;errtrt;04.04.2004 14:20;fdfdfd;RIDICATĂ;0
+29;asdadsa;10.10.2020 20:20;qwe;NORMALĂ;Vineri
+30;adasdadsdsadsadasadsadsad;10.10.2020 20:30;cv;RIDICATĂ;Marti, Miercuri, Joi, Vineri

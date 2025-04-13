@@ -59,6 +59,8 @@
             this.lblNume.Size = new System.Drawing.Size(49, 19);
             this.lblNume.TabIndex = 0;
             this.lblNume.Text = "Nume";
+            this.lblNume.UseCustomForeColor = true;
+            this.lblNume.UseStyleColors = true;
             // 
             // lblData
             // 
@@ -69,6 +71,8 @@
             this.lblData.Size = new System.Drawing.Size(188, 19);
             this.lblData.TabIndex = 1;
             this.lblData.Text = "Data (dd.mm.yyyy hh:mm)";
+            this.lblData.UseCustomForeColor = true;
+            this.lblData.UseStyleColors = true;
             // 
             // lblDescriere
             // 
@@ -79,6 +83,8 @@
             this.lblDescriere.Size = new System.Drawing.Size(72, 19);
             this.lblDescriere.TabIndex = 2;
             this.lblDescriere.Text = "Descriere";
+            this.lblDescriere.UseCustomForeColor = true;
+            this.lblDescriere.UseStyleColors = true;
             // 
             // lblPrioritate
             // 
@@ -89,6 +95,8 @@
             this.lblPrioritate.Size = new System.Drawing.Size(73, 19);
             this.lblPrioritate.TabIndex = 3;
             this.lblPrioritate.Text = "Prioritate";
+            this.lblPrioritate.UseCustomForeColor = true;
+            this.lblPrioritate.UseStyleColors = true;
             // 
             // txtNume
             // 
@@ -218,7 +226,9 @@
             this.metroCheckBox8.Style = MetroFramework.MetroColorStyle.Red;
             this.metroCheckBox8.TabIndex = 7;
             this.metroCheckBox8.Text = "Toate";
+            this.metroCheckBox8.UseCustomForeColor = true;
             this.metroCheckBox8.UseSelectable = true;
+            this.metroCheckBox8.UseStyleColors = true;
             // 
             // metroCheckBox7
             // 
@@ -229,7 +239,9 @@
             this.metroCheckBox7.Style = MetroFramework.MetroColorStyle.Red;
             this.metroCheckBox7.TabIndex = 6;
             this.metroCheckBox7.Text = "Duminică";
+            this.metroCheckBox7.UseCustomForeColor = true;
             this.metroCheckBox7.UseSelectable = true;
+            this.metroCheckBox7.UseStyleColors = true;
             // 
             // metroCheckBox6
             // 
@@ -240,7 +252,9 @@
             this.metroCheckBox6.Style = MetroFramework.MetroColorStyle.Red;
             this.metroCheckBox6.TabIndex = 5;
             this.metroCheckBox6.Text = "Sâmbătă";
+            this.metroCheckBox6.UseCustomForeColor = true;
             this.metroCheckBox6.UseSelectable = true;
+            this.metroCheckBox6.UseStyleColors = true;
             // 
             // metroCheckBox5
             // 
@@ -251,7 +265,9 @@
             this.metroCheckBox5.Style = MetroFramework.MetroColorStyle.Red;
             this.metroCheckBox5.TabIndex = 4;
             this.metroCheckBox5.Text = "Vineri";
+            this.metroCheckBox5.UseCustomForeColor = true;
             this.metroCheckBox5.UseSelectable = true;
+            this.metroCheckBox5.UseStyleColors = true;
             // 
             // metroCheckBox4
             // 
@@ -262,7 +278,9 @@
             this.metroCheckBox4.Style = MetroFramework.MetroColorStyle.Red;
             this.metroCheckBox4.TabIndex = 3;
             this.metroCheckBox4.Text = "Joi";
+            this.metroCheckBox4.UseCustomForeColor = true;
             this.metroCheckBox4.UseSelectable = true;
+            this.metroCheckBox4.UseStyleColors = true;
             // 
             // metroCheckBox3
             // 
@@ -273,7 +291,9 @@
             this.metroCheckBox3.Style = MetroFramework.MetroColorStyle.Red;
             this.metroCheckBox3.TabIndex = 2;
             this.metroCheckBox3.Text = "Miercuri";
+            this.metroCheckBox3.UseCustomForeColor = true;
             this.metroCheckBox3.UseSelectable = true;
+            this.metroCheckBox3.UseStyleColors = true;
             // 
             // metroCheckBox2
             // 
@@ -284,7 +304,9 @@
             this.metroCheckBox2.Style = MetroFramework.MetroColorStyle.Red;
             this.metroCheckBox2.TabIndex = 1;
             this.metroCheckBox2.Text = "Marti";
+            this.metroCheckBox2.UseCustomForeColor = true;
             this.metroCheckBox2.UseSelectable = true;
+            this.metroCheckBox2.UseStyleColors = true;
             // 
             // metroCheckBox1
             // 
@@ -295,7 +317,9 @@
             this.metroCheckBox1.Style = MetroFramework.MetroColorStyle.Red;
             this.metroCheckBox1.TabIndex = 0;
             this.metroCheckBox1.Text = "Luni";
+            this.metroCheckBox1.UseCustomForeColor = true;
             this.metroCheckBox1.UseSelectable = true;
+            this.metroCheckBox1.UseStyleColors = true;
             // 
             // btnAdauga
             // 

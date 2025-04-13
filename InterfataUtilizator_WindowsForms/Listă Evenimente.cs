@@ -45,11 +45,14 @@ namespace InterfataUtilizator_WindowsForms
             metroGridEvenimente.Columns.Add("Prioritate", "Prioritate");
             metroGridEvenimente.Columns.Add("Zile", "Zile");
 
-            // Setam coloanele sa se redimensioneze automat
-            foreach (DataGridViewColumn column in metroGridEvenimente.Columns)
-            {
-                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            }
+            // Setam coloanele sa aiba dimensiuni fixe sau sa se redimensioneze proportional
+            metroGridEvenimente.Columns["Titlu"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            metroGridEvenimente.Columns["Data"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            metroGridEvenimente.Columns["Descriere"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            metroGridEvenimente.Columns["Prioritate"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
+            // Setam coloana "Zile" sa umple spatiul ramas
+            metroGridEvenimente.Columns["Zile"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             AfiseazaPagina(paginaCurenta);
         }

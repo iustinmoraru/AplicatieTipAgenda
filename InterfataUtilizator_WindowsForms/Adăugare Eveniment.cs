@@ -40,11 +40,29 @@ namespace InterfataUtilizator_WindowsForms
         }
 
         private void btnAdauga_Click(object sender, EventArgs e)
-        {
-            string nume = txtNume.Text;
-            string data = txtData.Text;
-            string descriere = txtDescriere.Text;
-            int prioritate = cmbPrioritate.SelectedIndex;
+        { 
+            lblNume.ForeColor = Color.Black;
+            lblData.ForeColor = Color.Black;
+            lblDescriere.ForeColor = Color.Black;
+            lblPrioritate.ForeColor = Color.Black;
+            groupZileSaptamana.ForeColor = Color.Black;
+            foreach (Control control in groupZileSaptamana.Controls)
+            {
+                if (control is CheckBox checkBox)
+                {
+                    checkBox.ForeColor = Color.Black;
+                }
+            }
+            CodEroare validare = Validare();
+            if (validare != CodEroare.Corect)
+            {
+                MarcheazaControaleCuDateIncorecte(validare);
+                MessageBox.Show("Există erori în completarea formularului. Vă rugăm să verificați câmpurile marcate.",
+                                "Eroare de validare",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return;
+            }
 
             EnumPentruZiuaSaptamanii zileSelectate = EnumPentruZiuaSaptamanii.Toate; // Default
             zileSelectate = GetZileSelectate();
@@ -68,6 +86,47 @@ namespace InterfataUtilizator_WindowsForms
                 if (control is CheckBox checkBox)
                 {
                     checkBox.Checked = false;
+                }
+            }
+        }
+
+        public CodEroare Validare()
+        {
+            CodEroare rezultat = CodEroare.Corect;
+            if (string.IsNullOrWhiteSpace(txtNume.Text))
+                rezultat |= CodEroare.NumeIncorect;
+            if (string.IsNullOrWhiteSpace(txtData.Text))
+                rezultat |= CodEroare.DataIncorecta;
+            if (string.IsNullOrWhiteSpace(txtDescriere.Text))
+                rezultat |= CodEroare.DescriereIncorecta;
+            if (cmbPrioritate.SelectedIndex == -1)
+                rezultat |= CodEroare.PrioritateIncorecta;
+            if (GetZileSelectate() == 0)
+                rezultat |= CodEroare.ZileIncorecte;
+            
+            return rezultat;
+        }
+
+        public void MarcheazaControaleCuDateIncorecte(CodEroare validare)
+        {
+            //Verificam cu operatorul bitwise AND daca codul de eroare este insetat in "validare"
+            if ((validare & CodEroare.NumeIncorect) == CodEroare.NumeIncorect)
+                lblNume.ForeColor = Color.Red;
+            if ( (validare & CodEroare.DataIncorecta) == CodEroare.DataIncorecta )
+                lblData.ForeColor = Color.Red;
+            if ( (validare & CodEroare.DescriereIncorecta) == CodEroare.DescriereIncorecta )
+                lblDescriere.ForeColor = Color.Red;
+            if ( (validare & CodEroare.PrioritateIncorecta) == CodEroare.PrioritateIncorecta )
+                lblPrioritate.ForeColor = Color.Red;
+            if ( (validare & CodEroare.ZileIncorecte) == CodEroare.ZileIncorecte )
+            {
+                groupZileSaptamana.ForeColor = Color.Red;
+                foreach (Control control in groupZileSaptamana.Controls)
+                {
+                    if (control is CheckBox checkBox)
+                    {
+                        checkBox.ForeColor = Color.Red;
+                    }
                 }
             }
         }
