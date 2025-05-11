@@ -55,6 +55,16 @@ namespace InterfataUtilizator_WindowsForms
 
         private void btnAactualizeaza_Click(object sender, EventArgs e)
         {
+            CodEroare validare = Validare();
+            if (validare != CodEroare.Corect)
+            {
+                MarcheazaControaleCuDateIncorecte(validare);
+                MessageBox.Show("Există erori în completarea formularului. Vă rugăm să verificați câmpurile marcate.",
+                                "Eroare de validare",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return;
+            }
             evenimentEditat.Titlu = txtNume.Text;
             evenimentEditat.Data = DateTime.ParseExact(txtData.Text, "dd.MM.yyyy HH:mm", null);
             evenimentEditat.Descriere = txtDescriere.Text;
@@ -76,6 +86,67 @@ namespace InterfataUtilizator_WindowsForms
             MessageBox.Show("Modificările au fost salvate cu succes!");
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+
+        public CodEroare Validare()
+        {
+            CodEroare rezultat = CodEroare.Corect;
+            if (string.IsNullOrWhiteSpace(txtNume.Text))
+                rezultat |= CodEroare.NumeIncorect;
+            if (string.IsNullOrWhiteSpace(txtData.Text))
+                rezultat |= CodEroare.DataIncorecta;
+            if (string.IsNullOrWhiteSpace(txtDescriere.Text))
+                rezultat |= CodEroare.DescriereIncorecta;
+            if (cmbPrioritate.SelectedIndex == -1)
+                rezultat |= CodEroare.PrioritateIncorecta;
+            if (GetZileSelectate() == 0)
+                rezultat |= CodEroare.ZileIncorecte;
+
+            return rezultat;
+        }
+
+        public void MarcheazaControaleCuDateIncorecte(CodEroare validare)
+        {
+            //Verificam cu operatorul bitwise AND daca codul de eroare este insetat in "validare"
+            if ((validare & CodEroare.NumeIncorect) == CodEroare.NumeIncorect)
+                lblNume.ForeColor = Color.Red;
+            if ((validare & CodEroare.DataIncorecta) == CodEroare.DataIncorecta)
+                lblData.ForeColor = Color.Red;
+            if ((validare & CodEroare.DescriereIncorecta) == CodEroare.DescriereIncorecta)
+                lblDescriere.ForeColor = Color.Red;
+            if ((validare & CodEroare.PrioritateIncorecta) == CodEroare.PrioritateIncorecta)
+                lblPrioritate.ForeColor = Color.Red;
+            if ((validare & CodEroare.ZileIncorecte) == CodEroare.ZileIncorecte)
+            {
+                groupZileSaptamana.ForeColor = Color.Red;
+                foreach (Control control in groupZileSaptamana.Controls)
+                {
+                    if (control is CheckBox checkBox)
+                    {
+                        checkBox.ForeColor = Color.Red;
+                    }
+                }
+            }
+        }
+        private EnumPentruZiuaSaptamanii GetZileSelectate()
+        {
+            EnumPentruZiuaSaptamanii zileSelectate = 0;
+
+
+            // Iterăm prin toate controalele din GroupBox
+            foreach (Control control in groupZileSaptamana.Controls)
+            {
+                if (control is CheckBox checkBox && checkBox.Checked) // Verificăm dacă este CheckBox și dacă este bifat
+                {
+                    if (Enum.TryParse(checkBox.Text, out EnumPentruZiuaSaptamanii zi))
+                    {
+                        zileSelectate |= zi; // Adăugăm ziua selectată folosind operatorul bitwise OR
+                    }
+                }
+            }
+
+            return zileSelectate;
         }
     }
 }
