@@ -49,7 +49,7 @@ namespace InterfataUtilizator_WindowsForms
             }
 
             List<Eveniment> toateEvenimentele = agendaFisier.GetEvenimente();
-            // Filtrăm evenimentele după titlu
+            // Filtram evenimentele după titlu
             List<Eveniment> evenimenteFiltrate = toateEvenimentele
                 .Where(ev => ev.Titlu.IndexOf(numeCautat, StringComparison.OrdinalIgnoreCase) >= 0)
                 .ToList();

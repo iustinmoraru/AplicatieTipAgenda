@@ -78,6 +78,17 @@ namespace NivelStocareDate
 
         }
 
+        public void SalveazaEvenimente(List<Eveniment> evenimente)
+        {
+            using (StreamWriter writer = new StreamWriter(numeFisier, false))
+            {
+                foreach (Eveniment ev in evenimente)
+                {
+                    writer.WriteLine(ev.ConversieLaSir_PentruFisier());
+                }
+            }
+        }
+
     }
 
 }

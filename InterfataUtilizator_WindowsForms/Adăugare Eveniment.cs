@@ -140,6 +140,7 @@ namespace InterfataUtilizator_WindowsForms
         {
             EnumPentruZiuaSaptamanii zileSelectate = 0;
 
+
             // Iterăm prin toate controalele din GroupBox
             foreach (Control control in groupZileSaptamana.Controls)
             {

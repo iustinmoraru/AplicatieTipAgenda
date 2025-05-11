@@ -46,27 +46,6 @@ namespace LibrarieModele
         {
             return $"ID: {Id} Eveniment: {Titlu} Data: {Data:dd/MM/yyyy HH:mm} Descriere: {Descriere} Prioritate Eveniment: {PrioritateEveniment} Zile Saptamana: {ZileSelectate}\n";
         }
-
-        //public Eveniment(string linieFisier)
-        //{
-        //    string[] date = linieFisier.Split(SEPARATOR_PRINCIPAL_FISIER);
-
-        //    Array.Resize(ref date, 6);
-
-        //    Id = int.Parse(date[ID]);
-        //    Titlu = date[TITLU];
-        //    Data = DateTime.Parse(date[DATA]);
-        //    Descriere = date[DESCRIERE];
-        //    PrioritateEveniment = (EnumPentruPrioritateEveniment)Enum.Parse(typeof(EnumPentruPrioritateEveniment), date[PRIORITATE]);
-        //    if (!string.IsNullOrEmpty(date[ZILE_SAPTAMANA]))
-        //    {
-        //        ZileSelectate = (EnumPentruZiuaSaptamanii)Enum.Parse(typeof(EnumPentruZiuaSaptamanii), date[ZILE_SAPTAMANA]);
-        //    }
-        //    else
-        //    {
-        //        ZileSelectate = EnumPentruZiuaSaptamanii.Toate;
-        //    }
-        //}
         public Eveniment(string linieFisier)
         {
             string[] date = linieFisier.Split(SEPARATOR_PRINCIPAL_FISIER);
@@ -90,6 +69,11 @@ namespace LibrarieModele
                 Descriere ?? "NECUNOSCUT",
                 PrioritateEveniment,
                 ZileSelectate);
+        }
+
+        public Eveniment Clone()
+        {
+            return new Eveniment(this.Id, this.Titlu, this.Data, this.Descriere, (int)this.PrioritateEveniment, this.ZileSelectate.ToString());
         }
 
     }

@@ -14,8 +14,8 @@ namespace LibrarieModele
         Miercuri = 1 << 2, // 0000100
         Joi = 1 << 3,     // 0001000
         Vineri = 1 << 4,   // 0010000
-        Sambata = 1 << 5,  // 0100000
-        Duminica = 1 << 6, // 1000000
-        Toate = Luni | Marti | Miercuri | Joi | Vineri | Sambata | Duminica  // 1111111
+        Sâmbătă = 1 << 5,  // 0100000
+        Duminică = 1 << 6, // 1000000
+        Toate = Luni | Marti | Miercuri | Joi | Vineri | Sâmbătă | Duminică  // 1111111
     }
 }

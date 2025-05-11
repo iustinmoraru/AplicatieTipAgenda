@@ -109,5 +109,32 @@ namespace InterfataUtilizator_WindowsForms
                 AfiseazaPagina(paginaCurenta);
             }
         }
+
+        private void btnSterge_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (metroGridEvenimente.SelectedRows.Count > 0)
+            {
+                int indexSelectat = metroGridEvenimente.SelectedRows[0].Index;
+                Eveniment evenimentSelectat = evenimente[indexSelectat];
+
+                Editare_Eveniment formEditare = new Editare_Eveniment(evenimentSelectat);
+                if (formEditare.ShowDialog() == DialogResult.OK)
+                {
+                    evenimente[indexSelectat] = formEditare.ObiectEditat;
+
+                    agendaFisier.SalveazaEvenimente(evenimente);
+                    AfiseazaPagina(paginaCurenta);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selectați un eveniment pentru a-l edita.", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }

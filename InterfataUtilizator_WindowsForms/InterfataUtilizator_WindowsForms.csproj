@@ -68,6 +68,12 @@
     <Compile Include="Caută Eveniment.Designer.cs">
       <DependentUpon>Caută Eveniment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Editare Eveniment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editare Eveniment.Designer.cs">
+      <DependentUpon>Editare Eveniment.cs</DependentUpon>
+    </Compile>
     <Compile Include="EnumPentruVerificari.cs" />
     <Compile Include="Listă Evenimente.cs">
       <SubType>Form</SubType>
@@ -88,6 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Caută Eveniment.resx">
       <DependentUpon>Caută Eveniment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editare Eveniment.resx">
+      <DependentUpon>Editare Eveniment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Listă Evenimente.resx">
       <DependentUpon>Listă Evenimente.cs</DependentUpon>
