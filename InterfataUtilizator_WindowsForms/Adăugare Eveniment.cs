@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using LibrarieModele;
 using MetroFramework.Forms;
-using MetroFramework.Controls;
-using LibrarieModele;
 using NivelStocareDate;
+using System;
 using System.Configuration;
+using System.Drawing;
 using System.IO;
+using System.Windows.Forms;
 
 namespace InterfataUtilizator_WindowsForms
 {
@@ -23,7 +16,6 @@ namespace InterfataUtilizator_WindowsForms
         public Adăugare_Eveniment()
         {
             InitializeComponent();
-            cmbPrioritate.Items.AddRange(Enum.GetValues(typeof(EnumPentruPrioritateEveniment)).Cast<object>().ToArray());
             
             string numeFisier = ConfigurationManager.AppSettings["NumeFisier"];
             string locatieFisierSolutie = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName;
@@ -44,7 +36,11 @@ namespace InterfataUtilizator_WindowsForms
             lblNume.ForeColor = Color.Black;
             lblData.ForeColor = Color.Black;
             lblDescriere.ForeColor = Color.Black;
-            lblPrioritate.ForeColor = Color.Black;
+            groupPrioritate.ForeColor = Color.Black;
+            foreach (Control control in groupPrioritate.Controls)
+            {
+                control.ForeColor = Color.Black;
+            }
             groupZileSaptamana.ForeColor = Color.Black;
             foreach (Control control in groupZileSaptamana.Controls)
             {
@@ -72,7 +68,7 @@ namespace InterfataUtilizator_WindowsForms
                 txtNume.Text,
                 DateTime.Parse(txtData.Text),
                 txtDescriere.Text,
-                (int)cmbPrioritate.SelectedItem,
+                GetPrioritateSelectata(),
                 zileSelectate.ToString() );
 
             agendaFisier.AdaugaEveniment(ev);
@@ -80,7 +76,10 @@ namespace InterfataUtilizator_WindowsForms
             txtNume.Clear();
             txtData.Clear();
             txtDescriere.Clear();
-            cmbPrioritate.SelectedIndex = -1;
+            radiobtnSCAZUTA.Checked = false;
+            radiobtnNORMALA.Checked = false;
+            radiobtnRIDICATA.Checked = false;
+            radiobtnCRITICA.Checked = false;
             foreach (Control control in groupZileSaptamana.Controls)
             {
                 if (control is CheckBox checkBox)
@@ -99,7 +98,7 @@ namespace InterfataUtilizator_WindowsForms
                 rezultat |= CodEroare.DataIncorecta;
             if (string.IsNullOrWhiteSpace(txtDescriere.Text))
                 rezultat |= CodEroare.DescriereIncorecta;
-            if (cmbPrioritate.SelectedIndex == -1)
+            if (!radiobtnSCAZUTA.Checked && !radiobtnNORMALA.Checked && !radiobtnRIDICATA.Checked && !radiobtnCRITICA.Checked)
                 rezultat |= CodEroare.PrioritateIncorecta;
             if (GetZileSelectate() == 0)
                 rezultat |= CodEroare.ZileIncorecte;
@@ -116,8 +115,14 @@ namespace InterfataUtilizator_WindowsForms
                 lblData.ForeColor = Color.Red;
             if ( (validare & CodEroare.DescriereIncorecta) == CodEroare.DescriereIncorecta )
                 lblDescriere.ForeColor = Color.Red;
-            if ( (validare & CodEroare.PrioritateIncorecta) == CodEroare.PrioritateIncorecta )
-                lblPrioritate.ForeColor = Color.Red;
+            if ((validare & CodEroare.PrioritateIncorecta) == CodEroare.PrioritateIncorecta)
+            {
+                groupPrioritate.ForeColor = Color.Red;
+                foreach (Control control in groupPrioritate.Controls)
+                {
+                    control.ForeColor = Color.Red;
+                }
+            }
             if ( (validare & CodEroare.ZileIncorecte) == CodEroare.ZileIncorecte )
             {
                 groupZileSaptamana.ForeColor = Color.Red;
@@ -156,6 +161,19 @@ namespace InterfataUtilizator_WindowsForms
             return zileSelectate;
         }
 
-        
+        private int GetPrioritateSelectata()
+        {
+            if (radiobtnSCAZUTA.Checked)
+                return (int)EnumPentruPrioritateEveniment.SCĂZUTĂ;
+            if (radiobtnNORMALA.Checked)
+                return (int)EnumPentruPrioritateEveniment.NORMALĂ;
+            if (radiobtnRIDICATA.Checked)
+                return (int)EnumPentruPrioritateEveniment.RIDICATĂ;
+            if (radiobtnCRITICA.Checked)
+                return (int)EnumPentruPrioritateEveniment.CRITICĂ;
+            return 0;
+        }
+
+
     }
 }

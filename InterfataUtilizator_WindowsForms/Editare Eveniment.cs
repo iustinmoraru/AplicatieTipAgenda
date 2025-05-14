@@ -1,13 +1,7 @@
 ﻿using LibrarieModele;
 using MetroFramework.Forms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace InterfataUtilizator_WindowsForms
@@ -21,7 +15,6 @@ namespace InterfataUtilizator_WindowsForms
         {
             InitializeComponent();
             evenimentEditat = eveniment.Clone();  //Lucram pe o clona
-            cmbPrioritate.Items.AddRange(Enum.GetValues(typeof(EnumPentruPrioritateEveniment)).Cast<object>().ToArray());
 
             PopuleazaCampuri();
         }
@@ -30,7 +23,21 @@ namespace InterfataUtilizator_WindowsForms
             txtNume.Text = evenimentEditat.Titlu;
             txtData.Text = evenimentEditat.Data.ToString("dd.MM.yyyy HH:mm");
             txtDescriere.Text = evenimentEditat.Descriere;
-            cmbPrioritate.SelectedItem = evenimentEditat.PrioritateEveniment;
+            switch (evenimentEditat.PrioritateEveniment)
+            {
+                case EnumPentruPrioritateEveniment.SCĂZUTĂ:
+                    radiobtnSCAZUTA.Checked = true;
+                    break;
+                case EnumPentruPrioritateEveniment.NORMALĂ:
+                    radiobtnNORMALA.Checked = true;
+                    break;
+                case EnumPentruPrioritateEveniment.RIDICATĂ:
+                    radiobtnRIDICATA.Checked = true;
+                    break;
+                case EnumPentruPrioritateEveniment.CRITICĂ:
+                    radiobtnCRITICA.Checked = true;
+                    break;
+            }
 
             EnumPentruZiuaSaptamanii zileSelectate = evenimentEditat.ZileSelectate;
 
@@ -55,6 +62,23 @@ namespace InterfataUtilizator_WindowsForms
 
         private void btnAactualizeaza_Click(object sender, EventArgs e)
         {
+            lblNume.ForeColor = Color.Black;
+            lblData.ForeColor = Color.Black;
+            lblDescriere.ForeColor = Color.Black;
+            groupPrioritate.ForeColor = Color.Black;
+            foreach (Control control in groupPrioritate.Controls)
+            {
+                control.ForeColor = Color.Black;
+            }
+            groupZileSaptamana.ForeColor = Color.Black;
+            foreach (Control control in groupZileSaptamana.Controls)
+            {
+                if (control is CheckBox checkBox)
+                {
+                    checkBox.ForeColor = Color.Black;
+                }
+            }
+
             CodEroare validare = Validare();
             if (validare != CodEroare.Corect)
             {
@@ -68,7 +92,15 @@ namespace InterfataUtilizator_WindowsForms
             evenimentEditat.Titlu = txtNume.Text;
             evenimentEditat.Data = DateTime.ParseExact(txtData.Text, "dd.MM.yyyy HH:mm", null);
             evenimentEditat.Descriere = txtDescriere.Text;
-            evenimentEditat.PrioritateEveniment = (EnumPentruPrioritateEveniment)cmbPrioritate.SelectedItem;
+            
+            if (radiobtnSCAZUTA.Checked)
+                evenimentEditat.PrioritateEveniment = EnumPentruPrioritateEveniment.SCĂZUTĂ;
+            else if (radiobtnNORMALA.Checked)
+                evenimentEditat.PrioritateEveniment = EnumPentruPrioritateEveniment.NORMALĂ;
+            else if (radiobtnRIDICATA.Checked)
+                evenimentEditat.PrioritateEveniment = EnumPentruPrioritateEveniment.RIDICATĂ;
+            else if (radiobtnCRITICA.Checked)
+                evenimentEditat.PrioritateEveniment = EnumPentruPrioritateEveniment.CRITICĂ;
 
             evenimentEditat.ZileSelectate = 0;
             foreach (Control control in groupZileSaptamana.Controls)
@@ -98,7 +130,7 @@ namespace InterfataUtilizator_WindowsForms
                 rezultat |= CodEroare.DataIncorecta;
             if (string.IsNullOrWhiteSpace(txtDescriere.Text))
                 rezultat |= CodEroare.DescriereIncorecta;
-            if (cmbPrioritate.SelectedIndex == -1)
+            if (!radiobtnSCAZUTA.Checked && !radiobtnNORMALA.Checked && !radiobtnRIDICATA.Checked && !radiobtnCRITICA.Checked)
                 rezultat |= CodEroare.PrioritateIncorecta;
             if (GetZileSelectate() == 0)
                 rezultat |= CodEroare.ZileIncorecte;
@@ -108,7 +140,7 @@ namespace InterfataUtilizator_WindowsForms
 
         public void MarcheazaControaleCuDateIncorecte(CodEroare validare)
         {
-            //Verificam cu operatorul bitwise AND daca codul de eroare este insetat in "validare"
+            //Verificam cu operatorul bitwise AND daca codul de eroare este setat in "validare"
             if ((validare & CodEroare.NumeIncorect) == CodEroare.NumeIncorect)
                 lblNume.ForeColor = Color.Red;
             if ((validare & CodEroare.DataIncorecta) == CodEroare.DataIncorecta)
@@ -116,7 +148,13 @@ namespace InterfataUtilizator_WindowsForms
             if ((validare & CodEroare.DescriereIncorecta) == CodEroare.DescriereIncorecta)
                 lblDescriere.ForeColor = Color.Red;
             if ((validare & CodEroare.PrioritateIncorecta) == CodEroare.PrioritateIncorecta)
-                lblPrioritate.ForeColor = Color.Red;
+            {
+                groupPrioritate.ForeColor = Color.Red;
+                foreach (Control control in groupPrioritate.Controls)
+                {
+                    control.ForeColor = Color.Red;
+                }
+            }
             if ((validare & CodEroare.ZileIncorecte) == CodEroare.ZileIncorecte)
             {
                 groupZileSaptamana.ForeColor = Color.Red;

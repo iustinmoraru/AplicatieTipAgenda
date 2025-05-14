@@ -1,19 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using LibrarieModele;
 using MetroFramework.Forms;
-using MetroFramework.Controls;
 using NivelStocareDate;
+using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
-using NivelStocareDate;
-using LibrarieModele;
 
 namespace InterfataUtilizator_WindowsForms
 {

@@ -31,11 +31,9 @@
             this.lblNume = new MetroFramework.Controls.MetroLabel();
             this.lblData = new MetroFramework.Controls.MetroLabel();
             this.lblDescriere = new MetroFramework.Controls.MetroLabel();
-            this.lblPrioritate = new MetroFramework.Controls.MetroLabel();
             this.txtNume = new MetroFramework.Controls.MetroTextBox();
             this.txtData = new MetroFramework.Controls.MetroTextBox();
             this.txtDescriere = new MetroFramework.Controls.MetroTextBox();
-            this.cmbPrioritate = new MetroFramework.Controls.MetroComboBox();
             this.groupZileSaptamana = new System.Windows.Forms.GroupBox();
             this.metroCheckBox8 = new MetroFramework.Controls.MetroCheckBox();
             this.metroCheckBox7 = new MetroFramework.Controls.MetroCheckBox();
@@ -47,14 +45,20 @@
             this.metroCheckBox1 = new MetroFramework.Controls.MetroCheckBox();
             this.btnAdauga = new MetroFramework.Controls.MetroTile();
             this.btnBack = new MetroFramework.Controls.MetroButton();
+            this.groupPrioritate = new System.Windows.Forms.GroupBox();
+            this.radiobtnSCAZUTA = new MetroFramework.Controls.MetroRadioButton();
+            this.radiobtnRIDICATA = new MetroFramework.Controls.MetroRadioButton();
+            this.radiobtnNORMALA = new MetroFramework.Controls.MetroRadioButton();
+            this.radiobtnCRITICA = new MetroFramework.Controls.MetroRadioButton();
             this.groupZileSaptamana.SuspendLayout();
+            this.groupPrioritate.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblNume
             // 
             this.lblNume.AutoSize = true;
             this.lblNume.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.lblNume.Location = new System.Drawing.Point(146, 113);
+            this.lblNume.Location = new System.Drawing.Point(146, 70);
             this.lblNume.Name = "lblNume";
             this.lblNume.Size = new System.Drawing.Size(49, 19);
             this.lblNume.TabIndex = 0;
@@ -66,7 +70,7 @@
             // 
             this.lblData.AutoSize = true;
             this.lblData.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.lblData.Location = new System.Drawing.Point(146, 149);
+            this.lblData.Location = new System.Drawing.Point(146, 106);
             this.lblData.Name = "lblData";
             this.lblData.Size = new System.Drawing.Size(188, 19);
             this.lblData.TabIndex = 1;
@@ -78,25 +82,13 @@
             // 
             this.lblDescriere.AutoSize = true;
             this.lblDescriere.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.lblDescriere.Location = new System.Drawing.Point(146, 185);
+            this.lblDescriere.Location = new System.Drawing.Point(146, 142);
             this.lblDescriere.Name = "lblDescriere";
             this.lblDescriere.Size = new System.Drawing.Size(72, 19);
             this.lblDescriere.TabIndex = 2;
             this.lblDescriere.Text = "Descriere";
             this.lblDescriere.UseCustomForeColor = true;
             this.lblDescriere.UseStyleColors = true;
-            // 
-            // lblPrioritate
-            // 
-            this.lblPrioritate.AutoSize = true;
-            this.lblPrioritate.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.lblPrioritate.Location = new System.Drawing.Point(146, 221);
-            this.lblPrioritate.Name = "lblPrioritate";
-            this.lblPrioritate.Size = new System.Drawing.Size(73, 19);
-            this.lblPrioritate.TabIndex = 3;
-            this.lblPrioritate.Text = "Prioritate";
-            this.lblPrioritate.UseCustomForeColor = true;
-            this.lblPrioritate.UseStyleColors = true;
             // 
             // txtNume
             // 
@@ -113,7 +105,7 @@
             this.txtNume.CustomButton.UseSelectable = true;
             this.txtNume.CustomButton.Visible = false;
             this.txtNume.Lines = new string[0];
-            this.txtNume.Location = new System.Drawing.Point(355, 107);
+            this.txtNume.Location = new System.Drawing.Point(355, 64);
             this.txtNume.MaxLength = 32767;
             this.txtNume.Name = "txtNume";
             this.txtNume.PasswordChar = '\0';
@@ -143,7 +135,7 @@
             this.txtData.CustomButton.UseSelectable = true;
             this.txtData.CustomButton.Visible = false;
             this.txtData.Lines = new string[0];
-            this.txtData.Location = new System.Drawing.Point(355, 143);
+            this.txtData.Location = new System.Drawing.Point(355, 100);
             this.txtData.MaxLength = 32767;
             this.txtData.Name = "txtData";
             this.txtData.PasswordChar = '\0';
@@ -173,7 +165,7 @@
             this.txtDescriere.CustomButton.UseSelectable = true;
             this.txtDescriere.CustomButton.Visible = false;
             this.txtDescriere.Lines = new string[0];
-            this.txtDescriere.Location = new System.Drawing.Point(355, 179);
+            this.txtDescriere.Location = new System.Drawing.Point(355, 136);
             this.txtDescriere.MaxLength = 32767;
             this.txtDescriere.Name = "txtDescriere";
             this.txtDescriere.PasswordChar = '\0';
@@ -188,17 +180,6 @@
             this.txtDescriere.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtDescriere.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // cmbPrioritate
-            // 
-            this.cmbPrioritate.FormattingEnabled = true;
-            this.cmbPrioritate.ItemHeight = 23;
-            this.cmbPrioritate.Location = new System.Drawing.Point(355, 211);
-            this.cmbPrioritate.Name = "cmbPrioritate";
-            this.cmbPrioritate.Size = new System.Drawing.Size(100, 29);
-            this.cmbPrioritate.Style = MetroFramework.MetroColorStyle.Red;
-            this.cmbPrioritate.TabIndex = 11;
-            this.cmbPrioritate.UseSelectable = true;
-            // 
             // groupZileSaptamana
             // 
             this.groupZileSaptamana.Controls.Add(this.metroCheckBox8);
@@ -210,7 +191,7 @@
             this.groupZileSaptamana.Controls.Add(this.metroCheckBox2);
             this.groupZileSaptamana.Controls.Add(this.metroCheckBox1);
             this.groupZileSaptamana.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupZileSaptamana.Location = new System.Drawing.Point(146, 253);
+            this.groupZileSaptamana.Location = new System.Drawing.Point(146, 263);
             this.groupZileSaptamana.Name = "groupZileSaptamana";
             this.groupZileSaptamana.Size = new System.Drawing.Size(309, 125);
             this.groupZileSaptamana.TabIndex = 12;
@@ -324,7 +305,7 @@
             // btnAdauga
             // 
             this.btnAdauga.ActiveControl = null;
-            this.btnAdauga.Location = new System.Drawing.Point(227, 396);
+            this.btnAdauga.Location = new System.Drawing.Point(227, 406);
             this.btnAdauga.Name = "btnAdauga";
             this.btnAdauga.Size = new System.Drawing.Size(146, 49);
             this.btnAdauga.Style = MetroFramework.MetroColorStyle.Red;
@@ -338,7 +319,7 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(273, 451);
+            this.btnBack.Location = new System.Drawing.Point(273, 461);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(55, 21);
             this.btnBack.TabIndex = 14;
@@ -346,19 +327,80 @@
             this.btnBack.UseSelectable = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // groupPrioritate
+            // 
+            this.groupPrioritate.Controls.Add(this.radiobtnCRITICA);
+            this.groupPrioritate.Controls.Add(this.radiobtnNORMALA);
+            this.groupPrioritate.Controls.Add(this.radiobtnRIDICATA);
+            this.groupPrioritate.Controls.Add(this.radiobtnSCAZUTA);
+            this.groupPrioritate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupPrioritate.Location = new System.Drawing.Point(146, 167);
+            this.groupPrioritate.Name = "groupPrioritate";
+            this.groupPrioritate.Size = new System.Drawing.Size(309, 93);
+            this.groupPrioritate.TabIndex = 13;
+            this.groupPrioritate.TabStop = false;
+            this.groupPrioritate.Text = "Prioritate";
+            // 
+            // radiobtnSCAZUTA
+            // 
+            this.radiobtnSCAZUTA.AutoSize = true;
+            this.radiobtnSCAZUTA.Location = new System.Drawing.Point(6, 22);
+            this.radiobtnSCAZUTA.Name = "radiobtnSCAZUTA";
+            this.radiobtnSCAZUTA.Size = new System.Drawing.Size(74, 15);
+            this.radiobtnSCAZUTA.Style = MetroFramework.MetroColorStyle.Red;
+            this.radiobtnSCAZUTA.TabIndex = 0;
+            this.radiobtnSCAZUTA.Text = "SCĂZUTĂ";
+            this.radiobtnSCAZUTA.UseCustomForeColor = true;
+            this.radiobtnSCAZUTA.UseSelectable = true;
+            // 
+            // radiobtnRIDICATA
+            // 
+            this.radiobtnRIDICATA.AutoSize = true;
+            this.radiobtnRIDICATA.Location = new System.Drawing.Point(6, 43);
+            this.radiobtnRIDICATA.Name = "radiobtnRIDICATA";
+            this.radiobtnRIDICATA.Size = new System.Drawing.Size(73, 15);
+            this.radiobtnRIDICATA.Style = MetroFramework.MetroColorStyle.Red;
+            this.radiobtnRIDICATA.TabIndex = 1;
+            this.radiobtnRIDICATA.Text = "RIDICATĂ";
+            this.radiobtnRIDICATA.UseCustomForeColor = true;
+            this.radiobtnRIDICATA.UseSelectable = true;
+            // 
+            // radiobtnNORMALA
+            // 
+            this.radiobtnNORMALA.AutoSize = true;
+            this.radiobtnNORMALA.Location = new System.Drawing.Point(175, 22);
+            this.radiobtnNORMALA.Name = "radiobtnNORMALA";
+            this.radiobtnNORMALA.Size = new System.Drawing.Size(81, 15);
+            this.radiobtnNORMALA.Style = MetroFramework.MetroColorStyle.Red;
+            this.radiobtnNORMALA.TabIndex = 2;
+            this.radiobtnNORMALA.Text = "NORMALĂ";
+            this.radiobtnNORMALA.UseCustomForeColor = true;
+            this.radiobtnNORMALA.UseSelectable = true;
+            // 
+            // radiobtnCRITICA
+            // 
+            this.radiobtnCRITICA.AutoSize = true;
+            this.radiobtnCRITICA.Location = new System.Drawing.Point(175, 43);
+            this.radiobtnCRITICA.Name = "radiobtnCRITICA";
+            this.radiobtnCRITICA.Size = new System.Drawing.Size(67, 15);
+            this.radiobtnCRITICA.Style = MetroFramework.MetroColorStyle.Red;
+            this.radiobtnCRITICA.TabIndex = 3;
+            this.radiobtnCRITICA.Text = "CRITICĂ";
+            this.radiobtnCRITICA.UseCustomForeColor = true;
+            this.radiobtnCRITICA.UseSelectable = true;
+            // 
             // Adăugare_Eveniment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 500);
+            this.Controls.Add(this.groupPrioritate);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnAdauga);
             this.Controls.Add(this.groupZileSaptamana);
-            this.Controls.Add(this.cmbPrioritate);
             this.Controls.Add(this.txtDescriere);
             this.Controls.Add(this.txtData);
             this.Controls.Add(this.txtNume);
-            this.Controls.Add(this.lblPrioritate);
             this.Controls.Add(this.lblDescriere);
             this.Controls.Add(this.lblData);
             this.Controls.Add(this.lblNume);
@@ -368,6 +410,8 @@
             this.Load += new System.EventHandler(this.Adăugare_Eveniment_Load);
             this.groupZileSaptamana.ResumeLayout(false);
             this.groupZileSaptamana.PerformLayout();
+            this.groupPrioritate.ResumeLayout(false);
+            this.groupPrioritate.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -378,11 +422,9 @@
         private MetroFramework.Controls.MetroLabel lblNume;
         private MetroFramework.Controls.MetroLabel lblData;
         private MetroFramework.Controls.MetroLabel lblDescriere;
-        private MetroFramework.Controls.MetroLabel lblPrioritate;
         private MetroFramework.Controls.MetroTextBox txtNume;
         private MetroFramework.Controls.MetroTextBox txtData;
         private MetroFramework.Controls.MetroTextBox txtDescriere;
-        private MetroFramework.Controls.MetroComboBox cmbPrioritate;
         private System.Windows.Forms.GroupBox groupZileSaptamana;
         private MetroFramework.Controls.MetroCheckBox metroCheckBox8;
         private MetroFramework.Controls.MetroCheckBox metroCheckBox7;
@@ -394,5 +436,10 @@
         private MetroFramework.Controls.MetroCheckBox metroCheckBox1;
         private MetroFramework.Controls.MetroTile btnAdauga;
         private MetroFramework.Controls.MetroButton btnBack;
+        private System.Windows.Forms.GroupBox groupPrioritate;
+        private MetroFramework.Controls.MetroRadioButton radiobtnSCAZUTA;
+        private MetroFramework.Controls.MetroRadioButton radiobtnCRITICA;
+        private MetroFramework.Controls.MetroRadioButton radiobtnNORMALA;
+        private MetroFramework.Controls.MetroRadioButton radiobtnRIDICATA;
     }
 }

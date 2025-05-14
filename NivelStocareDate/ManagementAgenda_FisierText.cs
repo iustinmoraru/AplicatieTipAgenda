@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NivelStocareDate
 {
@@ -87,6 +85,22 @@ namespace NivelStocareDate
                     writer.WriteLine(ev.ConversieLaSir_PentruFisier());
                 }
             }
+        }
+
+        public List<Eveniment> CautaEveniment(string titlu)
+        {
+            if(string.IsNullOrWhiteSpace(titlu))
+            {
+                return null;
+            }
+
+            var toateEvenimentele = GetEvenimente();
+            // Filtram evenimentele după titlu
+            var evenimenteFiltrate = toateEvenimentele
+                .Where(ev => ev.Titlu.IndexOf(titlu, StringComparison.OrdinalIgnoreCase) >= 0)
+                .ToList();
+
+            return evenimenteFiltrate;
         }
 
     }

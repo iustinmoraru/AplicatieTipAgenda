@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using LibrarieModele;
 using MetroFramework.Forms;
-using MetroFramework.Controls;
 using NivelStocareDate;
+using System;
+using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.IO;
-using LibrarieModele;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace InterfataUtilizator_WindowsForms
 {
@@ -48,13 +43,9 @@ namespace InterfataUtilizator_WindowsForms
                 return;
             }
 
-            List<Eveniment> toateEvenimentele = agendaFisier.GetEvenimente();
-            // Filtram evenimentele după titlu
-            List<Eveniment> evenimenteFiltrate = toateEvenimentele
-                .Where(ev => ev.Titlu.IndexOf(numeCautat, StringComparison.OrdinalIgnoreCase) >= 0)
-                .ToList();
-
-            if (evenimenteFiltrate.Count == 0)
+            List<Eveniment> evenimenteFiltrate = agendaFisier.CautaEveniment(numeCautat);
+            
+            if (evenimenteFiltrate == null || evenimenteFiltrate.Count == 0)
             {
                 MessageBox.Show("Nu s-au găsit evenimente cu acest nume", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
