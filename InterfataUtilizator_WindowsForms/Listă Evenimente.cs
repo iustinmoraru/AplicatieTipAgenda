@@ -105,7 +105,32 @@ namespace InterfataUtilizator_WindowsForms
 
         private void btnSterge_Click(object sender, EventArgs e)
         {
+            if (metroGridEvenimente.SelectedRows.Count > 0)
+            {
+                int indexSelectat = metroGridEvenimente.SelectedRows[0].Index;
+                int indexEveniment = (paginaCurenta - 1) * EvenimentePePagina + indexSelectat;
 
+                if (indexEveniment >= 0 && indexEveniment < evenimente.Count)
+                {
+                    var confirmResult = MessageBox.Show(
+                        "Sigur doriți să ștergeți evenimentul selectat?",
+                        "Confirmare ștergere",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question);
+
+                    if (confirmResult == DialogResult.Yes)
+                    {
+                        var evenimentDeSters = evenimente[indexEveniment];
+                        agendaFisier.StergeEveniment(evenimentDeSters);
+                        evenimente = agendaFisier.GetEvenimente();
+                        AfiseazaPagina(paginaCurenta);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selectați un eveniment pentru a-l șterge.", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)

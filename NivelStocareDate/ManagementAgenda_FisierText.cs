@@ -57,24 +57,6 @@ namespace NivelStocareDate
             }
         }
 
-        public Eveniment CautaEvenimentinFisier(string titlu)
-        {
-            Eveniment ev;
-            using (StreamReader streamReader = new StreamReader(numeFisier))
-            {
-                string line;
-                while ((line = streamReader.ReadLine()) != null)
-                {
-                    ev = new Eveniment(line);
-                    if(ev.Titlu == titlu)
-                    {
-                        return ev;
-                    }
-                }
-            }
-            return null;
-
-        }
 
         public void SalveazaEvenimente(List<Eveniment> evenimente)
         {
@@ -103,6 +85,23 @@ namespace NivelStocareDate
             return evenimenteFiltrate;
         }
 
+        public void StergeEveniment(Eveniment evenimentDeSters)
+        {
+            var evenimente = GetEvenimente();
+            // Cauta si elimina primul eveniment care se potriveste 
+            var evDeSters = evenimente.FirstOrDefault(ev =>
+                ev.Titlu == evenimentDeSters.Titlu &&
+                ev.Data == evenimentDeSters.Data &&
+                ev.Descriere == evenimentDeSters.Descriere &&
+                ev.PrioritateEveniment == evenimentDeSters.PrioritateEveniment &&
+                ev.ZileSelectate == evenimentDeSters.ZileSelectate
+            );
+            if (evDeSters != null)
+            {
+                evenimente.Remove(evDeSters);
+                SalveazaEvenimente(evenimente);
+            }
+        }
     }
 
 }
