@@ -69,6 +69,7 @@
             this.txtNumeCautat.SelectionStart = 0;
             this.txtNumeCautat.ShortcutsEnabled = true;
             this.txtNumeCautat.Size = new System.Drawing.Size(213, 25);
+            this.txtNumeCautat.Style = MetroFramework.MetroColorStyle.Red;
             this.txtNumeCautat.TabIndex = 6;
             this.txtNumeCautat.UseSelectable = true;
             this.txtNumeCautat.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));

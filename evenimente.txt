@@ -1,1 +1,1 @@
-0;test;10.10.1010 10:10;asdasdasd;RIDICATĂ;Duminică
+1;0;test;10.10.1010 00:00;test;NORMALĂ;Sâmbătă, Duminică

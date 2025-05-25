@@ -34,13 +34,17 @@
             this.lblNumeUser = new MetroFramework.Controls.MetroLabel();
             this.lblPrenumeUser = new MetroFramework.Controls.MetroLabel();
             this.lblGenUser = new MetroFramework.Controls.MetroLabel();
+            this.AdaugareUser = new MetroFramework.Controls.MetroTile();
+            this.ListaUseri = new MetroFramework.Controls.MetroTile();
+            this.CautaUser = new MetroFramework.Controls.MetroTile();
+            this.btnSelecteazaUser = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
             // 
             // AdaugareButton
             // 
             this.AdaugareButton.ActiveControl = null;
             this.AdaugareButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AdaugareButton.Location = new System.Drawing.Point(200, 120);
+            this.AdaugareButton.Location = new System.Drawing.Point(74, 134);
             this.AdaugareButton.Name = "AdaugareButton";
             this.AdaugareButton.Size = new System.Drawing.Size(200, 80);
             this.AdaugareButton.Style = MetroFramework.MetroColorStyle.Red;
@@ -55,7 +59,7 @@
             // 
             this.ListaEvenimenteButton.ActiveControl = null;
             this.ListaEvenimenteButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ListaEvenimenteButton.Location = new System.Drawing.Point(200, 206);
+            this.ListaEvenimenteButton.Location = new System.Drawing.Point(74, 220);
             this.ListaEvenimenteButton.Name = "ListaEvenimenteButton";
             this.ListaEvenimenteButton.Size = new System.Drawing.Size(200, 80);
             this.ListaEvenimenteButton.Style = MetroFramework.MetroColorStyle.Red;
@@ -70,7 +74,7 @@
             // 
             this.CautaEvenimentButton.ActiveControl = null;
             this.CautaEvenimentButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CautaEvenimentButton.Location = new System.Drawing.Point(200, 292);
+            this.CautaEvenimentButton.Location = new System.Drawing.Point(74, 306);
             this.CautaEvenimentButton.Name = "CautaEvenimentButton";
             this.CautaEvenimentButton.Size = new System.Drawing.Size(200, 80);
             this.CautaEvenimentButton.Style = MetroFramework.MetroColorStyle.Red;
@@ -111,11 +115,71 @@
             this.lblGenUser.TabIndex = 5;
             this.lblGenUser.Text = "Gen";
             // 
+            // AdaugareUser
+            // 
+            this.AdaugareUser.ActiveControl = null;
+            this.AdaugareUser.Location = new System.Drawing.Point(326, 134);
+            this.AdaugareUser.Name = "AdaugareUser";
+            this.AdaugareUser.Size = new System.Drawing.Size(200, 80);
+            this.AdaugareUser.Style = MetroFramework.MetroColorStyle.Red;
+            this.AdaugareUser.TabIndex = 6;
+            this.AdaugareUser.Text = "Adăugare User";
+            this.AdaugareUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.AdaugareUser.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.AdaugareUser.UseSelectable = true;
+            this.AdaugareUser.Click += new System.EventHandler(this.AdaugareUser_Click);
+            // 
+            // ListaUseri
+            // 
+            this.ListaUseri.ActiveControl = null;
+            this.ListaUseri.Location = new System.Drawing.Point(326, 220);
+            this.ListaUseri.Name = "ListaUseri";
+            this.ListaUseri.Size = new System.Drawing.Size(200, 80);
+            this.ListaUseri.Style = MetroFramework.MetroColorStyle.Red;
+            this.ListaUseri.TabIndex = 7;
+            this.ListaUseri.Text = "Listă Useri";
+            this.ListaUseri.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ListaUseri.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.ListaUseri.UseSelectable = true;
+            this.ListaUseri.Click += new System.EventHandler(this.ListaUseri_Click);
+            // 
+            // CautaUser
+            // 
+            this.CautaUser.ActiveControl = null;
+            this.CautaUser.Location = new System.Drawing.Point(326, 306);
+            this.CautaUser.Name = "CautaUser";
+            this.CautaUser.Size = new System.Drawing.Size(200, 80);
+            this.CautaUser.Style = MetroFramework.MetroColorStyle.Red;
+            this.CautaUser.TabIndex = 8;
+            this.CautaUser.Text = "Caută User";
+            this.CautaUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.CautaUser.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.CautaUser.UseSelectable = true;
+            this.CautaUser.Click += new System.EventHandler(this.CautaUser_Click);
+            // 
+            // btnSelecteazaUser
+            // 
+            this.btnSelecteazaUser.ActiveControl = null;
+            this.btnSelecteazaUser.Location = new System.Drawing.Point(200, 392);
+            this.btnSelecteazaUser.Name = "btnSelecteazaUser";
+            this.btnSelecteazaUser.Size = new System.Drawing.Size(200, 80);
+            this.btnSelecteazaUser.Style = MetroFramework.MetroColorStyle.Red;
+            this.btnSelecteazaUser.TabIndex = 9;
+            this.btnSelecteazaUser.Text = "Selectează User";
+            this.btnSelecteazaUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSelecteazaUser.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.btnSelecteazaUser.UseSelectable = true;
+            this.btnSelecteazaUser.Click += new System.EventHandler(this.btnSelecteazaUser_Click);
+            // 
             // Meniu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 600);
+            this.Controls.Add(this.btnSelecteazaUser);
+            this.Controls.Add(this.CautaUser);
+            this.Controls.Add(this.ListaUseri);
+            this.Controls.Add(this.AdaugareUser);
             this.Controls.Add(this.lblGenUser);
             this.Controls.Add(this.lblPrenumeUser);
             this.Controls.Add(this.lblNumeUser);
@@ -139,5 +203,9 @@
         private MetroFramework.Controls.MetroLabel lblNumeUser;
         private MetroFramework.Controls.MetroLabel lblPrenumeUser;
         private MetroFramework.Controls.MetroLabel lblGenUser;
+        private MetroFramework.Controls.MetroTile AdaugareUser;
+        private MetroFramework.Controls.MetroTile ListaUseri;
+        private MetroFramework.Controls.MetroTile CautaUser;
+        private MetroFramework.Controls.MetroTile btnSelecteazaUser;
     }
 }

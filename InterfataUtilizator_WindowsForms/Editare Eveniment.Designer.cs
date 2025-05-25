@@ -277,6 +277,7 @@
             this.txtDescriere.SelectionStart = 0;
             this.txtDescriere.ShortcutsEnabled = true;
             this.txtDescriere.Size = new System.Drawing.Size(100, 25);
+            this.txtDescriere.Style = MetroFramework.MetroColorStyle.Red;
             this.txtDescriere.TabIndex = 28;
             this.txtDescriere.UseSelectable = true;
             this.txtDescriere.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -307,6 +308,7 @@
             this.txtData.SelectionStart = 0;
             this.txtData.ShortcutsEnabled = true;
             this.txtData.Size = new System.Drawing.Size(100, 25);
+            this.txtData.Style = MetroFramework.MetroColorStyle.Red;
             this.txtData.TabIndex = 27;
             this.txtData.UseSelectable = true;
             this.txtData.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -337,6 +339,7 @@
             this.txtNume.SelectionStart = 0;
             this.txtNume.ShortcutsEnabled = true;
             this.txtNume.Size = new System.Drawing.Size(100, 25);
+            this.txtNume.Style = MetroFramework.MetroColorStyle.Red;
             this.txtNume.TabIndex = 26;
             this.txtNume.UseSelectable = true;
             this.txtNume.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));

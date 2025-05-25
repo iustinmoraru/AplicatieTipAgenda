@@ -17,6 +17,7 @@ namespace LibrarieModele
         private const int PRIORITATE = 4;
         private const int ZILE_SAPTAMANA = 5;
 
+        public int UserId { get; set; }
         public int Id { get; set; }
         public string Titlu { get; set; }
         public DateTime Data { get; set; }
@@ -50,19 +51,21 @@ namespace LibrarieModele
         {
             string[] date = linieFisier.Split(SEPARATOR_PRINCIPAL_FISIER);
 
-            this.Id = Convert.ToInt32(date[ID]);
-            this.Titlu = date[TITLU];
-            this.Data = DateTime.Parse(date[DATA]);
-            this.Descriere = date[DESCRIERE];
-            this.PrioritateEveniment = (EnumPentruPrioritateEveniment)Enum.Parse(typeof(EnumPentruPrioritateEveniment), date[PRIORITATE]);
-            this.ZileSelectate = (EnumPentruZiuaSaptamanii)Enum.Parse(typeof(EnumPentruZiuaSaptamanii), date[ZILE_SAPTAMANA]);
+            this.UserId = Convert.ToInt32(date[0]);
+            this.Id = Convert.ToInt32(date[1]);
+            this.Titlu = date[2];
+            this.Data = DateTime.ParseExact(date[3], "dd.MM.yyyy HH:mm", null);
+            this.Descriere = date[4];
+            this.PrioritateEveniment = (EnumPentruPrioritateEveniment)Enum.Parse(typeof(EnumPentruPrioritateEveniment), date[5]);
+            this.ZileSelectate = (EnumPentruZiuaSaptamanii)Enum.Parse(typeof(EnumPentruZiuaSaptamanii), date[6]);
         }
 
 
         public string ConversieLaSir_PentruFisier()
         {
-            return string.Format("{1}{0}{2}{0}{3}{0}{4}{0}{5}{0}{6}",
+            return string.Format("{1}{0}{2}{0}{3}{0}{4}{0}{5}{0}{6}{0}{7}",
                 SEPARATOR_PRINCIPAL_FISIER,
+                UserId,
                 Id,
                 Titlu ?? "NECUNOSCUT",
                 Data.ToString("dd/MM/yyyy HH:mm") ?? "NECUNOSCUT",

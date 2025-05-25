@@ -1,10 +1,7 @@
-﻿using System;
+﻿using LibrarieModele;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LibrarieModele;
 
 namespace NivelStocareDate
 {
@@ -21,7 +18,9 @@ namespace NivelStocareDate
 
         public void AdaugaUser(User user)
         {
-            user.Id_User = GetUsers().Count;
+            var users = GetUsers();
+            int idNou = users.Count > 0 ? users.Max(u => u.Id_User) + 1 : 1;
+            user.Id_User = idNou;
             using (StreamWriter streamWriterFisierText = new StreamWriter(numeFisier, true))
             {
                 streamWriterFisierText.WriteLine(user.ConversieLaSir_PentruFisier());
@@ -58,10 +57,36 @@ namespace NivelStocareDate
             }
         }
 
-        public User CautaUserinFisier(string _nume, string _prenume)
+        public List<User> CautaUseriDupaNumePrenume(string nume, string prenume)
         {
             var users = GetUsers();
-            return users.FirstOrDefault(u => u.Nume == _nume && u.Prenume == _prenume);
+            return users.Where(u => u.Nume == nume && u.Prenume == prenume).ToList();
+        }
+
+        public void SalveazaUseri(List<User> useri)
+        {
+            using (StreamWriter writer = new StreamWriter(numeFisier, false))
+            {
+                foreach (User user in useri)
+                {
+                    writer.WriteLine(user.ConversieLaSir_PentruFisier());
+                }
+            }
+        }
+        public void StergeUser(User userDeSters)
+        {
+            var useri = GetUsers();
+            // Cauta si elimina primul user care se potriveste 
+            var userGasit = useri.FirstOrDefault(u =>
+                u.Nume == userDeSters.Nume &&
+                u.Prenume == userDeSters.Prenume &&
+                u.Gen == userDeSters.Gen
+            );
+            if (userGasit != null)
+            {
+                useri.Remove(userGasit);
+                SalveazaUseri(useri);
+            }
         }
     }
 }

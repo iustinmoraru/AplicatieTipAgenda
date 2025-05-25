@@ -46,10 +46,10 @@
             this.btnAdauga = new MetroFramework.Controls.MetroTile();
             this.btnBack = new MetroFramework.Controls.MetroButton();
             this.groupPrioritate = new System.Windows.Forms.GroupBox();
-            this.radiobtnSCAZUTA = new MetroFramework.Controls.MetroRadioButton();
-            this.radiobtnRIDICATA = new MetroFramework.Controls.MetroRadioButton();
-            this.radiobtnNORMALA = new MetroFramework.Controls.MetroRadioButton();
             this.radiobtnCRITICA = new MetroFramework.Controls.MetroRadioButton();
+            this.radiobtnNORMALA = new MetroFramework.Controls.MetroRadioButton();
+            this.radiobtnRIDICATA = new MetroFramework.Controls.MetroRadioButton();
+            this.radiobtnSCAZUTA = new MetroFramework.Controls.MetroRadioButton();
             this.groupZileSaptamana.SuspendLayout();
             this.groupPrioritate.SuspendLayout();
             this.SuspendLayout();
@@ -115,6 +115,7 @@
             this.txtNume.SelectionStart = 0;
             this.txtNume.ShortcutsEnabled = true;
             this.txtNume.Size = new System.Drawing.Size(100, 25);
+            this.txtNume.Style = MetroFramework.MetroColorStyle.Red;
             this.txtNume.TabIndex = 5;
             this.txtNume.UseSelectable = true;
             this.txtNume.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -145,6 +146,7 @@
             this.txtData.SelectionStart = 0;
             this.txtData.ShortcutsEnabled = true;
             this.txtData.Size = new System.Drawing.Size(100, 25);
+            this.txtData.Style = MetroFramework.MetroColorStyle.Red;
             this.txtData.TabIndex = 6;
             this.txtData.UseSelectable = true;
             this.txtData.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -175,6 +177,7 @@
             this.txtDescriere.SelectionStart = 0;
             this.txtDescriere.ShortcutsEnabled = true;
             this.txtDescriere.Size = new System.Drawing.Size(100, 25);
+            this.txtDescriere.Style = MetroFramework.MetroColorStyle.Red;
             this.txtDescriere.TabIndex = 7;
             this.txtDescriere.UseSelectable = true;
             this.txtDescriere.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -341,29 +344,17 @@
             this.groupPrioritate.TabStop = false;
             this.groupPrioritate.Text = "Prioritate";
             // 
-            // radiobtnSCAZUTA
+            // radiobtnCRITICA
             // 
-            this.radiobtnSCAZUTA.AutoSize = true;
-            this.radiobtnSCAZUTA.Location = new System.Drawing.Point(6, 22);
-            this.radiobtnSCAZUTA.Name = "radiobtnSCAZUTA";
-            this.radiobtnSCAZUTA.Size = new System.Drawing.Size(74, 15);
-            this.radiobtnSCAZUTA.Style = MetroFramework.MetroColorStyle.Red;
-            this.radiobtnSCAZUTA.TabIndex = 0;
-            this.radiobtnSCAZUTA.Text = "SCĂZUTĂ";
-            this.radiobtnSCAZUTA.UseCustomForeColor = true;
-            this.radiobtnSCAZUTA.UseSelectable = true;
-            // 
-            // radiobtnRIDICATA
-            // 
-            this.radiobtnRIDICATA.AutoSize = true;
-            this.radiobtnRIDICATA.Location = new System.Drawing.Point(6, 43);
-            this.radiobtnRIDICATA.Name = "radiobtnRIDICATA";
-            this.radiobtnRIDICATA.Size = new System.Drawing.Size(73, 15);
-            this.radiobtnRIDICATA.Style = MetroFramework.MetroColorStyle.Red;
-            this.radiobtnRIDICATA.TabIndex = 1;
-            this.radiobtnRIDICATA.Text = "RIDICATĂ";
-            this.radiobtnRIDICATA.UseCustomForeColor = true;
-            this.radiobtnRIDICATA.UseSelectable = true;
+            this.radiobtnCRITICA.AutoSize = true;
+            this.radiobtnCRITICA.Location = new System.Drawing.Point(175, 43);
+            this.radiobtnCRITICA.Name = "radiobtnCRITICA";
+            this.radiobtnCRITICA.Size = new System.Drawing.Size(67, 15);
+            this.radiobtnCRITICA.Style = MetroFramework.MetroColorStyle.Red;
+            this.radiobtnCRITICA.TabIndex = 3;
+            this.radiobtnCRITICA.Text = "CRITICĂ";
+            this.radiobtnCRITICA.UseCustomForeColor = true;
+            this.radiobtnCRITICA.UseSelectable = true;
             // 
             // radiobtnNORMALA
             // 
@@ -377,17 +368,29 @@
             this.radiobtnNORMALA.UseCustomForeColor = true;
             this.radiobtnNORMALA.UseSelectable = true;
             // 
-            // radiobtnCRITICA
+            // radiobtnRIDICATA
             // 
-            this.radiobtnCRITICA.AutoSize = true;
-            this.radiobtnCRITICA.Location = new System.Drawing.Point(175, 43);
-            this.radiobtnCRITICA.Name = "radiobtnCRITICA";
-            this.radiobtnCRITICA.Size = new System.Drawing.Size(67, 15);
-            this.radiobtnCRITICA.Style = MetroFramework.MetroColorStyle.Red;
-            this.radiobtnCRITICA.TabIndex = 3;
-            this.radiobtnCRITICA.Text = "CRITICĂ";
-            this.radiobtnCRITICA.UseCustomForeColor = true;
-            this.radiobtnCRITICA.UseSelectable = true;
+            this.radiobtnRIDICATA.AutoSize = true;
+            this.radiobtnRIDICATA.Location = new System.Drawing.Point(6, 43);
+            this.radiobtnRIDICATA.Name = "radiobtnRIDICATA";
+            this.radiobtnRIDICATA.Size = new System.Drawing.Size(73, 15);
+            this.radiobtnRIDICATA.Style = MetroFramework.MetroColorStyle.Red;
+            this.radiobtnRIDICATA.TabIndex = 1;
+            this.radiobtnRIDICATA.Text = "RIDICATĂ";
+            this.radiobtnRIDICATA.UseCustomForeColor = true;
+            this.radiobtnRIDICATA.UseSelectable = true;
+            // 
+            // radiobtnSCAZUTA
+            // 
+            this.radiobtnSCAZUTA.AutoSize = true;
+            this.radiobtnSCAZUTA.Location = new System.Drawing.Point(6, 22);
+            this.radiobtnSCAZUTA.Name = "radiobtnSCAZUTA";
+            this.radiobtnSCAZUTA.Size = new System.Drawing.Size(74, 15);
+            this.radiobtnSCAZUTA.Style = MetroFramework.MetroColorStyle.Red;
+            this.radiobtnSCAZUTA.TabIndex = 0;
+            this.radiobtnSCAZUTA.Text = "SCĂZUTĂ";
+            this.radiobtnSCAZUTA.UseCustomForeColor = true;
+            this.radiobtnSCAZUTA.UseSelectable = true;
             // 
             // Adăugare_Eveniment
             // 

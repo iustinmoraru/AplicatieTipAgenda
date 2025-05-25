@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace InterfataUtilizator_WindowsForms
@@ -15,6 +16,7 @@ namespace InterfataUtilizator_WindowsForms
         private List<Eveniment> evenimente;
         private int paginaCurenta = 1;
         private const int EvenimentePePagina = 10;
+        private User userCurent;
         public Listă_Evenimente()
         {
             InitializeComponent();
@@ -54,6 +56,23 @@ namespace InterfataUtilizator_WindowsForms
         {
             InitializeComponent();
             this.evenimente = evenimenteFiltrate;
+        }
+
+        public Listă_Evenimente(User user)
+        {
+            InitializeComponent();
+            userCurent = user;
+
+            string numeFisier = ConfigurationManager.AppSettings["NumeFisier"];
+            string locatieFisierSolutie = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName;
+            // setare locatie fisier in directorul corespunzator solutiei
+            // astfel incat datele din fisier sa poata fi utilizate si de alte proiecte
+            string caleCompletaFisier = locatieFisierSolutie + "\\" + numeFisier;
+
+            agendaFisier = new ManagementAgenda_FisierText(caleCompletaFisier);
+            evenimente = agendaFisier.GetEvenimente();
+
+            evenimente = agendaFisier.GetEvenimente().Where(ev => ev.UserId == userCurent.Id_User).ToList();
         }
 
 
@@ -154,5 +173,6 @@ namespace InterfataUtilizator_WindowsForms
                 MessageBox.Show("Selectați un eveniment pentru a-l edita.", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
     }
 }

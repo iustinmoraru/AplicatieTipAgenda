@@ -12,11 +12,12 @@ namespace InterfataUtilizator_WindowsForms
     public partial class Adăugare_Eveniment: MetroForm
     {
         ManagementAgenda_FisierText agendaFisier;
-
-        public Adăugare_Eveniment()
+        private User userCurent;
+        public Adăugare_Eveniment(User user)
         {
             InitializeComponent();
-            
+            userCurent = user;
+
             string numeFisier = ConfigurationManager.AppSettings["NumeFisier"];
             string locatieFisierSolutie = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName;
             // setare locatie fisier in directorul corespunzator solutiei
@@ -70,6 +71,8 @@ namespace InterfataUtilizator_WindowsForms
                 txtDescriere.Text,
                 GetPrioritateSelectata(),
                 zileSelectate.ToString() );
+            
+            ev.UserId = userCurent.Id_User; //Setez UserId
 
             agendaFisier.AdaugaEveniment(ev);
 
