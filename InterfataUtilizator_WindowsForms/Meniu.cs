@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace InterfataUtilizator_WindowsForms
@@ -25,12 +26,26 @@ namespace InterfataUtilizator_WindowsForms
 
         private void Meniu_Load(object sender, EventArgs e)
         {
+            int lastUserId = Properties.Settings.Default.LastUserId;
+            userCurent = null;
+
             List<User> useri = managementUser.GetUsers();
-            if (useri.Count > 0)
+            if (lastUserId != 0)
             {
-                lblNumeUser.Text = useri[0].Nume;
-                lblPrenumeUser.Text = useri[0].Prenume;
-                lblGenUser.Text = useri[0].Gen.ToString();
+                userCurent = useri.FirstOrDefault(u => u.Id_User == lastUserId);
+            }
+
+            if (userCurent != null)
+            {
+                lblNumeUser.Text = userCurent.Nume;
+                lblPrenumeUser.Text = userCurent.Prenume;
+                lblGenUser.Text = userCurent.Gen.ToString();
+            }
+            else
+            {
+                lblNumeUser.Text = "";
+                lblPrenumeUser.Text = "";
+                lblGenUser.Text = "";
             }
         }
 

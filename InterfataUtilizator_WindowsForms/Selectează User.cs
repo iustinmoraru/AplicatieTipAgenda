@@ -73,6 +73,8 @@ namespace InterfataUtilizator_WindowsForms
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
+                Properties.Settings.Default.LastUserId = UserSelectat.Id_User;
+                Properties.Settings.Default.Save();
             }
             else
             {
@@ -93,6 +95,11 @@ namespace InterfataUtilizator_WindowsForms
 
             btnPrevious.Enabled = pagina > 1;
             btnNext.Enabled = endIndex < useri.Count;
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
