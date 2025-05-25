@@ -73,7 +73,12 @@ namespace InterfataUtilizator_WindowsForms
 
         private void CautaEvenimentButton_Click(object sender, EventArgs e)
         {
-            Caută_Eveniment cautăEveniment = new Caută_Eveniment();
+            if (userCurent == null)
+            {
+                MessageBox.Show("Selectați un user mai întâi!");
+                return;
+            }
+            Caută_Eveniment cautăEveniment = new Caută_Eveniment(userCurent);
             cautăEveniment.ShowDialog();
         }
 

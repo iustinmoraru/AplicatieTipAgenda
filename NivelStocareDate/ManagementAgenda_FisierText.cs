@@ -85,6 +85,22 @@ namespace NivelStocareDate
             return evenimenteFiltrate;
         }
 
+        public List<Eveniment> CautaEvenimentDupaUser(string titlu, int userId)
+        {
+            if (string.IsNullOrWhiteSpace(titlu))
+            {
+                return null;
+            }
+
+            var toateEvenimentele = GetEvenimente();
+            // Filtrăm după titlu și userId
+            var evenimenteFiltrate = toateEvenimentele
+                .Where(ev => ev.UserId == userId && ev.Titlu.IndexOf(titlu, StringComparison.OrdinalIgnoreCase) >= 0)
+                .ToList();
+
+            return evenimenteFiltrate;
+        }
+
         public void StergeEveniment(Eveniment evenimentDeSters)
         {
             var evenimente = GetEvenimente();

@@ -14,8 +14,8 @@ namespace InterfataUtilizator_WindowsForms
     public partial class Caută_Eveniment: MetroForm
     {
         private ManagementAgenda_FisierText agendaFisier;
-
-        public Caută_Eveniment()
+        private User userCurent;
+        public Caută_Eveniment(User user)
         {
             InitializeComponent();
             string numeFisier = ConfigurationManager.AppSettings["NumeFisier"];
@@ -25,7 +25,7 @@ namespace InterfataUtilizator_WindowsForms
             string caleCompletaFisier = locatieFisierSolutie + "\\" + numeFisier;
 
             agendaFisier = new ManagementAgenda_FisierText(caleCompletaFisier);
-            
+            userCurent = user;
         }
 
         private void Caută_Eveniment_Load(object sender, EventArgs e)
@@ -43,7 +43,7 @@ namespace InterfataUtilizator_WindowsForms
                 return;
             }
 
-            List<Eveniment> evenimenteFiltrate = agendaFisier.CautaEveniment(numeCautat);
+            List<Eveniment> evenimenteFiltrate = agendaFisier.CautaEvenimentDupaUser(numeCautat, userCurent.Id_User);
             
             if (evenimenteFiltrate == null || evenimenteFiltrate.Count == 0)
             {
