@@ -57,7 +57,6 @@ namespace NivelStocareDate
             }
         }
 
-
         public void SalveazaEvenimente(List<Eveniment> evenimente)
         {
             using (StreamWriter writer = new StreamWriter(numeFisier, false))
@@ -93,7 +92,7 @@ namespace NivelStocareDate
             }
 
             var toateEvenimentele = GetEvenimente();
-            // Filtrăm după titlu și userId
+            // Filtram dupa titlu si userId
             var evenimenteFiltrate = toateEvenimentele
                 .Where(ev => ev.UserId == userId && ev.Titlu.IndexOf(titlu, StringComparison.OrdinalIgnoreCase) >= 0)
                 .ToList();

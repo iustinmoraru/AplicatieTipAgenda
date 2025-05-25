@@ -1,2 +1,1 @@
-1;0;test;10.10.1010 10:10;moraru;SCĂZUTĂ;Luni
 2;1;test;20.10.2020 20:20;ff;CRITICĂ;Vineri

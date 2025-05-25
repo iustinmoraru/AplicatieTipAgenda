@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using LibrarieModele;
-using MetroFramework.Controls;
+﻿using LibrarieModele;
 using MetroFramework.Forms;
 using NivelStocareDate;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace InterfataUtilizator_WindowsForms
 {
@@ -99,13 +92,11 @@ namespace InterfataUtilizator_WindowsForms
                     Editare_User formEditare = new Editare_User(userSelectat);
                     if (formEditare.ShowDialog() == DialogResult.OK)
                     {
-                        // Actualizează userul în listă cu cel modificat
+                        // Actualizeaza userul in lista cu cel modificat
                         useri[indexUser] = formEditare.ObiectEditat;
 
-                        // Salvează lista actualizată în fișier
                         managementUser.SalveazaUseri(useri);
 
-                        // Reafișează pagina curentă
                         AfiseazaPagina(paginaCurenta);
                     }
                 }
