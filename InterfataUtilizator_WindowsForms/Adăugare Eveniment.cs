@@ -64,10 +64,17 @@ namespace InterfataUtilizator_WindowsForms
             EnumPentruZiuaSaptamanii zileSelectate = EnumPentruZiuaSaptamanii.Toate; // Default
             zileSelectate = GetZileSelectate();
 
+            DateTime dataEveniment;
+            if (!DateTime.TryParse(txtData.Text, out dataEveniment))
+            {
+                MessageBox.Show("Data introdusă nu este validă!", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             Eveniment ev = new Eveniment(
                 0,
                 txtNume.Text,
-                DateTime.Parse(txtData.Text),
+                dataEveniment,
                 txtDescriere.Text,
                 GetPrioritateSelectata(),
                 zileSelectate.ToString() );

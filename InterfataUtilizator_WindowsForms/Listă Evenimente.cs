@@ -126,10 +126,10 @@ namespace InterfataUtilizator_WindowsForms
         {
             if (metroGridEvenimente.SelectedRows.Count > 0)
             {
-                int indexSelectat = metroGridEvenimente.SelectedRows[0].Index;
-                int indexEveniment = (paginaCurenta - 1) * EvenimentePePagina + indexSelectat;
+                int indexSelectat = metroGridEvenimente.SelectedRows[0].Index; ///Obtine indexul randului selectat
+                int indexEveniment = (paginaCurenta - 1) * EvenimentePePagina + indexSelectat; ///Calculeaza indexul din lista
 
-                if (indexEveniment >= 0 && indexEveniment < evenimente.Count)
+                if (indexEveniment >= 0 && indexEveniment < evenimente.Count) ///Verifica daca indexul este in limita listei
                 {
                     var confirmResult = MessageBox.Show(
                         "Sigur doriți să ștergeți evenimentul selectat?",
@@ -141,7 +141,17 @@ namespace InterfataUtilizator_WindowsForms
                     {
                         var evenimentDeSters = evenimente[indexEveniment];
                         agendaFisier.StergeEveniment(evenimentDeSters);
-                        evenimente = agendaFisier.GetEvenimente();
+                        ///Filtreaza dupa user curent
+                        if (userCurent != null)
+                        {
+                            evenimente = agendaFisier.GetEvenimente()
+                                .Where(ev => ev.UserId == userCurent.Id_User)
+                                .ToList();
+                        }
+                        else
+                        {
+                            evenimente = agendaFisier.GetEvenimente();
+                        }
                         AfiseazaPagina(paginaCurenta);
                     }
                 }
